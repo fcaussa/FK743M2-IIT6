@@ -22,6 +22,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "lv_conf.h"
+#include <stdint.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -31,7 +32,17 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+#define LCD_HOR_RES 800
+#define LCD_VER_RES 480
+#define BYTES_PER_PIXEL 2   // RGB565 for first bring-up
+#define LCD_FB_ADDR 0xD0000000U
+#define LCD_FB_SIZE      (LCD_HOR_RES * LCD_VER_RES * 2U)   // RGB565
 
+#define RGB565_RED    0xF800
+#define RGB565_GREEN  0x07E0
+#define RGB565_BLUE   0x001F
+#define RGB565_WHITE  0xFFFF
+#define RGB565_BLACK  0x0000
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -74,12 +85,26 @@ static void MX_USART1_UART_Init(void);
 static void MX_USB_OTG_FS_PCD_Init(void);
 static void MX_I2C1_Init(void);
 /* USER CODE BEGIN PFP */
-
+static volatile uint16_t * lcd_fb = (uint16_t *)LCD_FB_ADDR;
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+static void LCD_Fill(uint16_t color)
+{
+    for(uint32_t y = 0; y < LCD_VER_RES; y++) {
+        for(uint32_t x = 0; x < LCD_HOR_RES; x++) {
+            lcd_fb[y * LCD_HOR_RES + x] = color;
+        }
+    }
+}
 
+static void LCD_DrawPixel(uint16_t x, uint16_t y, uint16_t color)
+{
+    if(x < LCD_HOR_RES && y < LCD_VER_RES) {
+        lcd_fb[y * LCD_HOR_RES + x] = color;
+    }
+}
 /* USER CODE END 0 */
 
 /**
@@ -123,10 +148,10 @@ int main(void)
   MX_USB_OTG_FS_PCD_Init();
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
-
-  //Timer12 Channel 1 is LCD Backlight control; PWM signal @2Khz; Brightens 0%(0)->100%(499)
-  HAL_TIM_PWM_Start(&htim12, TIM_CHANNEL_1);
-  htim12.Instance->CCR1 = 499;
+  LCD_Fill(RGB565_BLACK);
+  LCD_DrawPixel(10, 10, RGB565_WHITE);
+  LCD_DrawPixel(11, 10, RGB565_WHITE);
+  LCD_DrawPixel(12, 10, RGB565_WHITE);
 
   /* USER CODE END 2 */
 
