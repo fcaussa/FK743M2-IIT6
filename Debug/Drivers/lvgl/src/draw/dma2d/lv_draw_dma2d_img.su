@@ -1,0 +1,4 @@
+../Drivers/lvgl/src/draw/dma2d/lv_draw_dma2d_img.c:49:6:lv_draw_dma2d_opaque_image	24	static
+../Drivers/lvgl/src/draw/dma2d/lv_draw_dma2d_img.c:60:6:lv_draw_dma2d_image	24	static
+../Drivers/lvgl/src/draw/dma2d/lv_draw_dma2d_img.c:75:13:lv_draw_dma2d_opaque_image_core	200	static
+../Drivers/lvgl/src/draw/dma2d/lv_draw_dma2d_img.c:171:13:lv_draw_dma2d_image_core	200	static

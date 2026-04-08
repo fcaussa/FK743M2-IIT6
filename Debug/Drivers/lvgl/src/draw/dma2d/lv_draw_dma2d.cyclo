@@ -1,0 +1,14 @@
+../Drivers/CMSIS/Include/core_cm7.h:1911:22:__NVIC_EnableIRQ	2
+../Drivers/CMSIS/Include/core_cm7.h:1949:22:__NVIC_DisableIRQ	2
+../Drivers/lvgl/src/draw/dma2d/lv_draw_dma2d.c:61:6:lv_draw_dma2d_init	1
+../Drivers/lvgl/src/draw/dma2d/lv_draw_dma2d.c:95:6:lv_draw_dma2d_deinit	1
+../Drivers/lvgl/src/draw/dma2d/lv_draw_dma2d.c:126:27:lv_draw_dma2d_cf_to_dma2d_output_cf	5
+../Drivers/lvgl/src/draw/dma2d/lv_draw_dma2d.c:144:10:lv_draw_dma2d_color_to_dma2d_color	4
+../Drivers/lvgl/src/draw/dma2d/lv_draw_dma2d.c:158:6:lv_draw_dma2d_configure_and_start_transfer	1
+../Drivers/lvgl/src/draw/dma2d/lv_draw_dma2d.c:209:6:lv_draw_dma2d_invalidate_cache	4
+../Drivers/lvgl/src/draw/dma2d/lv_draw_dma2d.c:216:6:lv_draw_dma2d_clean_cache	4
+../Drivers/lvgl/src/draw/dma2d/lv_draw_dma2d.c:228:16:evaluate_cb	31
+../Drivers/lvgl/src/draw/dma2d/lv_draw_dma2d.c:281:16:dispatch_cb	11
+../Drivers/lvgl/src/draw/dma2d/lv_draw_dma2d.c:359:16:delete_cb	1
+../Drivers/lvgl/src/draw/dma2d/lv_draw_dma2d.c:379:13:check_transfer_completion	1
+../Drivers/lvgl/src/draw/dma2d/lv_draw_dma2d.c:385:13:post_transfer_tasks	1

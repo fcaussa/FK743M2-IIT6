@@ -1,0 +1,7 @@
+../Drivers/lvgl/examples/porting/osal/../../../src/core/../osal/lv_os_private.h:191:27:lv_thread_init	24	static
+../Drivers/lvgl/examples/porting/osal/../../../src/core/../osal/lv_os_private.h:239:27:lv_thread_sync_init	16	static
+../Drivers/lvgl/examples/porting/osal/../../../src/core/../osal/lv_os_private.h:245:27:lv_thread_sync_wait	16	static
+../Drivers/lvgl/examples/porting/osal/../../../src/core/../osal/lv_os_private.h:251:27:lv_thread_sync_signal	16	static
+../Drivers/lvgl/examples/porting/osal/lv_example_osal.c:42:6:lv_example_osal	24	static
+../Drivers/lvgl/examples/porting/osal/lv_example_osal.c:64:13:counter_button_event_cb	16	static
+../Drivers/lvgl/examples/porting/osal/lv_example_osal.c:72:13:increment_thread_entry	24	static

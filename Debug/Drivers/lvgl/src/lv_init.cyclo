@@ -1,0 +1,6 @@
+../Drivers/lvgl/src/draw/../misc/../stdlib/lv_string.h:73:20:lv_memzero	1
+../Drivers/lvgl/src/lv_init.c:125:20:lv_global_init	3
+../Drivers/lvgl/src/lv_init.c:157:20:lv_cleanup_devices	3
+../Drivers/lvgl/src/lv_init.c:168:6:lv_is_initialized	1
+../Drivers/lvgl/src/lv_init.c:178:6:lv_init	4
+../Drivers/lvgl/src/lv_init.c:422:6:lv_deinit	3

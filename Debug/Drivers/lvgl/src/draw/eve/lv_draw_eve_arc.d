@@ -1,0 +1,12 @@
+Drivers/lvgl/src/draw/eve/lv_draw_eve_arc.o: \
+ ../Drivers/lvgl/src/draw/eve/lv_draw_eve_arc.c \
+ ../Drivers/lvgl/src/draw/eve/lv_draw_eve_private.h \
+ ../Drivers/lvgl/src/draw/eve/lv_draw_eve.h \
+ ../Drivers/lvgl/src/draw/eve/../../lv_conf_internal.h \
+ ../Drivers/lvgl/src/draw/eve/../../lv_conf_kconfig.h \
+ ../Core/Inc/lv_conf.h
+../Drivers/lvgl/src/draw/eve/lv_draw_eve_private.h:
+../Drivers/lvgl/src/draw/eve/lv_draw_eve.h:
+../Drivers/lvgl/src/draw/eve/../../lv_conf_internal.h:
+../Drivers/lvgl/src/draw/eve/../../lv_conf_kconfig.h:
+../Core/Inc/lv_conf.h:
