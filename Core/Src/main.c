@@ -124,6 +124,10 @@ int main(void)
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
 
+  //Timer12 Channel 1 is LCD Backlight control; PWM signal @2Khz; Brightens 0%(0)->100%(499)
+  HAL_TIM_PWM_Start(&htim12, TIM_CHANNEL_1);
+  htim12.Instance->CCR1 = 499;
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
