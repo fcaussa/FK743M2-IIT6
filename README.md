@@ -107,5 +107,9 @@ Upon startup, the firmware performs the following sequence:
 
 ---
 
+![image alt](https://github.com/fcaussa/FK743M2-IIT6/blob/ff039a1ffd49789aa15a9bf46ca5a6bc1cf9c1b1/Resources/demo.jpeg)
+
+![image alt](https://github.com/fcaussa/FK743M2-IIT6/blob/ff039a1ffd49789aa15a9bf46ca5a6bc1cf9c1b1/Resources/working_setup.jpeg)
+
 ## 📄 License
 This project is shared as a practical reference for the community. Use, modify, and improve it as needed.
