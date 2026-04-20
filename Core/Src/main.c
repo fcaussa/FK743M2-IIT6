@@ -32,6 +32,9 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+#define LCD_HOR_RES   800
+#define LCD_VER_RES   480
+#define LCD_FB_ADDR   0xC0000000U   // SDRAM Bank1
 
 /* USER CODE END PD */
 
@@ -77,11 +80,55 @@ static void MX_USB_OTG_FS_PCD_Init(void);
 static void MX_I2C1_Init(void);
 /* USER CODE BEGIN PFP */
 
+static void SDRAM_Initialization_Sequence(SDRAM_HandleTypeDef *hsdram)
+{
+    FMC_SDRAM_CommandTypeDef cmd = {0};
+    uint32_t mode = 0;
+
+    HAL_Delay(1);
+
+    cmd.CommandMode = FMC_SDRAM_CMD_CLK_ENABLE;
+    cmd.CommandTarget = FMC_SDRAM_CMD_TARGET_BANK1;
+    cmd.AutoRefreshNumber = 1;
+    cmd.ModeRegisterDefinition = 0;
+    HAL_SDRAM_SendCommand(hsdram, &cmd, HAL_MAX_DELAY);
+
+    HAL_Delay(1);
+
+    cmd.CommandMode = FMC_SDRAM_CMD_PALL;
+    cmd.CommandTarget = FMC_SDRAM_CMD_TARGET_BANK1;
+    cmd.AutoRefreshNumber = 1;
+    cmd.ModeRegisterDefinition = 0;
+    HAL_SDRAM_SendCommand(hsdram, &cmd, HAL_MAX_DELAY);
+
+    cmd.CommandMode = FMC_SDRAM_CMD_AUTOREFRESH_MODE;
+    cmd.CommandTarget = FMC_SDRAM_CMD_TARGET_BANK1;
+    cmd.AutoRefreshNumber = 8;
+    cmd.ModeRegisterDefinition = 0;
+    HAL_SDRAM_SendCommand(hsdram, &cmd, HAL_MAX_DELAY);
+
+    mode = 0
+         | (0x0 << 0)   // burst length = 1
+         | (0x0 << 3)   // sequential
+         | (0x2 << 4)   // CAS latency = 3
+         | (0x0 << 7)   // standard operating mode
+         | (0x1 << 9);  // single write burst
+
+    cmd.CommandMode = FMC_SDRAM_CMD_LOAD_MODE;
+    cmd.CommandTarget = FMC_SDRAM_CMD_TARGET_BANK1;
+    cmd.AutoRefreshNumber = 1;
+    cmd.ModeRegisterDefinition = mode;
+    HAL_SDRAM_SendCommand(hsdram, &cmd, HAL_MAX_DELAY);
+
+    HAL_SDRAM_ProgramRefreshRate(hsdram, 761);
+}
+
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
+static uint16_t *fb = (uint16_t *)LCD_FB_ADDR;
 
 /* USER CODE END 0 */
 
@@ -126,6 +173,11 @@ int main(void)
   MX_USB_OTG_FS_PCD_Init();
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
+
+  /* IMPORTANT: The FMC_Init alone is NOT enough.
+       You MUST run the manual command sequence to wake up the RAM chip. */
+  SDRAM_Initialization_Sequence(&hsdram1);
+
 
   //Enable LCD Backlight; Backlight is a PWM signal @2Khz, where brightness is handling the DutyCicle of the signal
     //this duty cicly is handled 0%->0; 100%->500; So 250 is 50% DutyCicly/Brightness
@@ -594,7 +646,7 @@ static void MX_FMC_Init(void)
   }
 
   /* USER CODE BEGIN FMC_Init 2 */
-
+    SDRAM_Initialization_Sequence(&hsdram1);
   /* USER CODE END FMC_Init 2 */
 }
 
