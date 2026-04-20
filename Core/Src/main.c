@@ -128,7 +128,7 @@ static void SDRAM_Initialization_Sequence(SDRAM_HandleTypeDef *hsdram)
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-static uint16_t *fb = (uint16_t *)LCD_FB_ADDR;
+static uint32_t *fb = (uint32_t *)LCD_FB_ADDR;
 
 /* USER CODE END 0 */
 
