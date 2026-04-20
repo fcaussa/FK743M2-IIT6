@@ -288,6 +288,12 @@ default.size.stdout \
 OBJDUMP_LIST += \
 FK743M2-IIT6.list \
 
+OBJCOPY_HEX += \
+FK743M2-IIT6.hex \
+
+OBJCOPY_BIN += \
+FK743M2-IIT6.bin \
+
 
 # All Target
 all: main-build
@@ -311,12 +317,22 @@ FK743M2-IIT6.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
+FK743M2-IIT6.hex: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objcopy  -O ihex $(EXECUTABLES) "FK743M2-IIT6.hex"
+	@echo 'Finished building: $@'
+	@echo ' '
+
+FK743M2-IIT6.bin: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objcopy  -O binary $(EXECUTABLES) "FK743M2-IIT6.bin"
+	@echo 'Finished building: $@'
+	@echo ' '
+
 # Other Targets
 clean:
-	-$(RM) FK743M2-IIT6.elf FK743M2-IIT6.list FK743M2-IIT6.map default.size.stdout
+	-$(RM) FK743M2-IIT6.bin FK743M2-IIT6.elf FK743M2-IIT6.hex FK743M2-IIT6.list FK743M2-IIT6.map default.size.stdout
 	-@echo ' '
 
-secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
+secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_HEX) $(OBJCOPY_BIN)
 
 fail-specified-linker-script-missing:
 	@echo 'Error: Cannot find the specified linker script. Check the linker settings in the build configuration.'

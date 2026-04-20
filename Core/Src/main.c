@@ -90,7 +90,7 @@ static volatile uint16_t * lcd_fb = (uint16_t *)LCD_FB_ADDR;
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-static void LCD_Fill(uint16_t color)
+/*static void LCD_Fill(uint16_t color)
 {
     for(uint32_t y = 0; y < LCD_VER_RES; y++) {
         for(uint32_t x = 0; x < LCD_HOR_RES; x++) {
@@ -105,6 +105,8 @@ static void LCD_DrawPixel(uint16_t x, uint16_t y, uint16_t color)
         lcd_fb[y * LCD_HOR_RES + x] = color;
     }
 }
+
+*/
 /* USER CODE END 0 */
 
 /**
@@ -142,16 +144,16 @@ int main(void)
   MX_FMC_Init();
   MX_LTDC_Init();
   MX_QUADSPI_Init();
-  MX_SDMMC1_SD_Init();
+  //MX_SDMMC1_SD_Init();
   MX_TIM12_Init();
   MX_USART1_UART_Init();
   MX_USB_OTG_FS_PCD_Init();
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
-  LCD_Fill(RGB565_BLACK);
-  LCD_DrawPixel(10, 10, RGB565_WHITE);
-  LCD_DrawPixel(11, 10, RGB565_WHITE);
-  LCD_DrawPixel(12, 10, RGB565_WHITE);
+  //LCD_Fill(RGB565_BLACK);
+  //LCD_DrawPixel(10, 10, RGB565_WHITE);
+  //LCD_DrawPixel(11, 10, RGB565_WHITE);
+  //LCD_DrawPixel(12, 10, RGB565_WHITE);
 
   /* USER CODE END 2 */
 
@@ -160,6 +162,8 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
+	  HAL_GPIO_TogglePin(GPIOH, GPIO_PIN_7);
+	  HAL_Delay(500);
 
     /* USER CODE BEGIN 3 */
   }
@@ -713,6 +717,8 @@ void Error_Handler(void)
   __disable_irq();
   while (1)
   {
+	  HAL_GPIO_TogglePin(GPIOH, GPIO_PIN_7);
+	  HAL_Delay(100);
   }
   /* USER CODE END Error_Handler_Debug */
 }
