@@ -35,6 +35,14 @@
 #define LCD_HOR_RES   800
 #define LCD_VER_RES   480
 #define LCD_FB_ADDR   0xC0000000U   // SDRAM Bank1
+#define RGB565_BLACK   0x0000
+#define RGB565_WHITE   0xFFFF
+#define RGB565_RED     0xF800
+#define RGB565_GREEN   0x07E0
+#define RGB565_BLUE    0x001F
+#define RGB565_YELLOW  0xFFE0
+#define RGB565_CYAN    0x07FF
+#define RGB565_MAGENTA 0xF81F
 
 /* USER CODE END PD */
 
@@ -123,6 +131,7 @@ static void SDRAM_Initialization_Sequence(SDRAM_HandleTypeDef *hsdram)
     HAL_SDRAM_ProgramRefreshRate(hsdram, 761);
 }
 
+/*
 static uint32_t *fb = (uint32_t *)LCD_FB_ADDR;
 
 void fill_screen(uint32_t color)
@@ -134,7 +143,21 @@ void fill_screen(uint32_t color)
             fb[y * LCD_HOR_RES + x] = color;
         }
     }
+}*/
+static uint16_t *fb = (uint16_t *)LCD_FB_ADDR;
+
+void fill_screen(uint16_t color)
+{
+    for (uint32_t y = 0; y < LCD_VER_RES; y++)
+    {
+        for (uint32_t x = 0; x < LCD_HOR_RES; x++)
+        {
+            fb[y * LCD_HOR_RES + x] = color;
+        }
+    }
 }
+
+
 
 /* USER CODE END PFP */
 
@@ -186,22 +209,34 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
 
-  // 2. Clear/Fill the buffer in memory
-  fill_screen(0xFF00FF00);
-
-  // 3. Tell LTDC to look at this address for Layer 0
-  HAL_LTDC_SetAddress(&hltdc, 0xC0000000, 0);
-
-  // 4. Enable the layer if not done in CubeMX
-  __HAL_LTDC_LAYER_ENABLE(&hltdc, 0);
-
-  // 5. Reload the configuration to apply changes
-  HAL_LTDC_Reload(&hltdc, LTDC_RELOAD_IMMEDIATE);
 
   //Enable LCD Backlight; Backlight is a PWM signal @2Khz, where brightness is handling the DutyCicle of the signal
-    //this duty cicly is handled 0%->0; 100%->500; So 250 is 50% DutyCicly/Brightness
-    HAL_TIM_PWM_Start(&htim12, TIM_CHANNEL_1);
-    __HAL_TIM_SET_COMPARE(&htim12, TIM_CHANNEL_1, 499);   // 50% duty at 2 kHz
+  //this duty cicly is handled 0%->0; 100%->500; So 250 is 50% DutyCicly/Brightness
+  HAL_TIM_PWM_Start(&htim12, TIM_CHANNEL_1);
+  __HAL_TIM_SET_COMPARE(&htim12, TIM_CHANNEL_1, 499);   // 50% duty at 2 kHz
+
+
+  // 2. Clear/Fill the buffer in memory with color bars!
+
+  for (uint32_t y = 0; y < LCD_VER_RES; y++)
+     {
+         for (uint32_t x = 0; x < LCD_HOR_RES; x++)
+         {
+             uint16_t color;
+
+             if (x < LCD_HOR_RES / 8) color = 0x0000;      // black
+             else if (x < 2 * LCD_HOR_RES / 8) color = 0xF800; // red
+             else if (x < 3 * LCD_HOR_RES / 8) color = 0x07E0; // green
+             else if (x < 4 * LCD_HOR_RES / 8) color = 0x001F; // blue
+             else if (x < 5 * LCD_HOR_RES / 8) color = 0xFFE0; // yellow
+             else if (x < 6 * LCD_HOR_RES / 8) color = 0xF81F; // magenta
+             else if (x < 7 * LCD_HOR_RES / 8) color = 0x07FF; // cyan
+             else color = 0xFFFF; // white
+
+             fb[y * LCD_HOR_RES + x] = color;
+         }
+     }
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -380,7 +415,7 @@ static void MX_LTDC_Init(void)
   pLayerCfg.WindowY0 = 0;
   pLayerCfg.WindowY1 = LCD_VER_RES;   // 480
 
-  pLayerCfg.PixelFormat    = LTDC_PIXEL_FORMAT_ARGB8888;
+  pLayerCfg.PixelFormat    = LTDC_PIXEL_FORMAT_RGB565;
   pLayerCfg.FBStartAdress  = LCD_FB_ADDR;
   pLayerCfg.Alpha          = 255;
   pLayerCfg.Alpha0         = 0;
