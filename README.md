@@ -4,6 +4,8 @@ A minimal **STM32CubeIDE** bring-up project for the **FK743M2-IIT6** development
 
 This repository provides a **known-good starting point** for this specific board/display combination. Because documentation is scarce, this project aims to save developers significant debugging time by providing a validated hardware configuration.
 
+This is NOT "vibe coded"—it is a validated hardware configuration designed to save debugging time on LTDC timing and FMC signal integrity.
+
 ---
 
 ## 🚀 Overview
