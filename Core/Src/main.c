@@ -69,6 +69,7 @@ PCD_HandleTypeDef hpcd_USB_OTG_FS;
 SDRAM_HandleTypeDef hsdram1;
 
 /* USER CODE BEGIN PV */
+uint8_t sd_present = 0;
 
 /* USER CODE END PV */
 
@@ -90,7 +91,7 @@ static volatile uint16_t * lcd_fb = (uint16_t *)LCD_FB_ADDR;
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-/*static void LCD_Fill(uint16_t color)
+static void LCD_Fill(uint16_t color)
 {
     for(uint32_t y = 0; y < LCD_VER_RES; y++) {
         for(uint32_t x = 0; x < LCD_HOR_RES; x++) {
@@ -106,7 +107,7 @@ static void LCD_DrawPixel(uint16_t x, uint16_t y, uint16_t color)
     }
 }
 
-*/
+
 /* USER CODE END 0 */
 
 /**
@@ -144,7 +145,7 @@ int main(void)
   MX_FMC_Init();
   MX_LTDC_Init();
   MX_QUADSPI_Init();
-  //MX_SDMMC1_SD_Init();
+  MX_SDMMC1_SD_Init();
   MX_TIM12_Init();
   MX_USART1_UART_Init();
   MX_USB_OTG_FS_PCD_Init();
@@ -399,6 +400,8 @@ static void MX_QUADSPI_Init(void)
   * @param None
   * @retval None
   */
+
+
 static void MX_SDMMC1_SD_Init(void)
 {
 
@@ -415,10 +418,15 @@ static void MX_SDMMC1_SD_Init(void)
   hsd1.Init.BusWide = SDMMC_BUS_WIDE_4B;
   hsd1.Init.HardwareFlowControl = SDMMC_HARDWARE_FLOW_CONTROL_DISABLE;
   hsd1.Init.ClockDiv = 0;
-  if (HAL_SD_Init(&hsd1) != HAL_OK)
-  {
-    Error_Handler();
+  if (HAL_SD_Init(&hsd1) == HAL_OK){
+    sd_present = 1;
+    if (HAL_SD_ConfigWideBusOperation(&hsd1, SDMMC_BUS_WIDE_4B) != HAL_OK){
+      sd_present = 0;
+    }
+  }else{
+    sd_present = 0;
   }
+
   /* USER CODE BEGIN SDMMC1_Init 2 */
 
   /* USER CODE END SDMMC1_Init 2 */
