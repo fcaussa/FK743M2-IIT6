@@ -213,7 +213,7 @@ int main(void)
   //Enable LCD Backlight; Backlight is a PWM signal @2Khz, where brightness is handling the DutyCicle of the signal
   //this duty cicly is handled 0%->0; 100%->500; So 250 is 50% DutyCicly/Brightness
   HAL_TIM_PWM_Start(&htim12, TIM_CHANNEL_1);
-  __HAL_TIM_SET_COMPARE(&htim12, TIM_CHANNEL_1, 499);   // 50% duty at 2 kHz
+  __HAL_TIM_SET_COMPARE(&htim12, TIM_CHANNEL_1, 375);   // 75% brightness/duty cicle at 2 kHz
 
 
   // 2. Clear/Fill the buffer in memory with color bars!
@@ -241,12 +241,12 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  int i = 499;
   while (1)
   {
     /* USER CODE END WHILE */
 	  HAL_GPIO_TogglePin(GPIOH, GPIO_PIN_7);
 	  HAL_Delay(500);
-
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
