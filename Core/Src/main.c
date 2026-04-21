@@ -210,6 +210,7 @@ int main(void)
   __HAL_TIM_SET_COMPARE(&htim12, TIM_CHANNEL_1, 499);   // 50% duty at 2 kHz
 
 
+
   // 2. Clear/Fill the buffer in memory with color bars!
 
   for (uint32_t y = 0; y < LCD_VER_RES; y++)
@@ -230,6 +231,10 @@ int main(void)
              fb[y * LCD_HOR_RES + x] = color;
          }
      }
+
+  HAL_Delay(2000);
+
+  //here we have to initialize LVGL
 
   /* USER CODE END 2 */
 
