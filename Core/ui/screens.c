@@ -31,9 +31,24 @@ void create_screen_main() {
         lv_obj_t *parent_obj = obj;
         {
             lv_obj_t *obj = lv_label_create(parent_obj);
-            lv_obj_set_pos(obj, 356, 232);
+            lv_obj_set_pos(obj, 356, 224);
             lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
             lv_label_set_text(obj, "Hello, world!");
+        }
+        {
+            lv_obj_t *obj = lv_button_create(parent_obj);
+            lv_obj_set_pos(obj, 350, 312);
+            lv_obj_set_size(obj, 100, 50);
+            {
+                lv_obj_t *parent_obj = obj;
+                {
+                    lv_obj_t *obj = lv_label_create(parent_obj);
+                    lv_obj_set_pos(obj, 0, 0);
+                    lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+                    lv_obj_set_style_align(obj, LV_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_label_set_text(obj, "Button");
+                }
+            }
         }
     }
     
@@ -135,12 +150,6 @@ uint32_t active_theme_index = 0;
 //
 
 void create_screens() {
-
-// Set default LVGL theme
-    //lv_display_t *dispp = lv_display_get_default();
-    //lv_theme_t *theme = lv_theme_default_init(dispp, lv_palette_main(LV_PALETTE_BLUE), lv_palette_main(LV_PALETTE_RED), false, LV_FONT_DEFAULT);
-    //lv_display_set_theme(dispp, theme);
-    
     // Initialize screens
     // Create screens
     create_screen_main();

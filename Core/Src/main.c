@@ -23,6 +23,7 @@
 /* USER CODE BEGIN Includes */
 #include "lvgl.h"
 #include "ui.h"          /* EEZ generated */
+#include "actions.h"	/* EEZ UI Actions */
 #include "gt911.h"        /* Touch Driver */
 #include <stdint.h>
 #include <string.h>
@@ -189,6 +190,7 @@ static void lvgl_initialization(void){
 int main(void)
 {
     /* USER CODE BEGIN 1 */
+
     /* USER CODE END 1 */
 
     /* MPU must be configured before anything else */
@@ -246,10 +248,8 @@ int main(void)
     /* Initialize LVGL and create display */
     lvgl_initialization();
 
-    /* Create a simple "Hello World" label to verify LVGL is working */
-    //lv_obj_t *label = lv_label_create(lv_screen_active());
-    //lv_label_set_text(label, "Hello STM32H743!");
-    //lv_obj_center(label);
+    gt911_init();              /* initialize touch hardware */
+    gt911_lvgl_indev_init();  /* register with LVGL */
 
     // Initialize EEZ UI — must be called AFTER lvgl_initialization()
     ui_init();             // this calls create_screens() internally
@@ -268,12 +268,14 @@ int main(void)
 
         HAL_Delay(5);
 
-        /* LED heartbeat — toggle every ~500ms */
+        /* LED heartbeat — toggle every ~500ms*/
         heartbeat += 5;
         if (heartbeat >= 500) {
             heartbeat = 0;
             HAL_GPIO_TogglePin(GPIOH, GPIO_PIN_7);
         }
+
+
         /* USER CODE END WHILE */
 
         /* USER CODE BEGIN 3 */
@@ -702,7 +704,10 @@ static void MX_GPIO_Init(void)
     GPIO_InitStruct.Pin   = TOUCH_RST_Pin | LED_Pin;
     HAL_GPIO_Init(GPIOH, &GPIO_InitStruct);
 
-    GPIO_InitStruct.Pin   = TOUCH_INT_Pin;
+    /* TOUCH_INT — input, no pull (GT911 drives it) */
+    GPIO_InitStruct.Pin  = TOUCH_INT_Pin;
+    GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
     HAL_GPIO_Init(TOUCH_INT_GPIO_Port, &GPIO_InitStruct);
 }
 

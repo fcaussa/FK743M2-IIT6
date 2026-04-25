@@ -110,7 +110,17 @@
     "structures": [],
     "enums": []
   },
-  "actions": [],
+  "actions": [
+    {
+      "objID": "bd61deeb-ddf3-446f-c86c-930b639d37ad",
+      "components": [],
+      "connectionLines": [],
+      "localVariables": [],
+      "componentGroups": [],
+      "userProperties": [],
+      "name": "on_button_press"
+    }
+  ],
   "userPages": [
     {
       "objID": "4b40eba7-b31a-468a-b887-11dfd0b6637f",
@@ -141,7 +151,7 @@
               "objID": "6b272cb8-48b4-467f-c130-a1edc1f930b7",
               "type": "LVGLLabelWidget",
               "left": 356,
-              "top": 22,
+              "top": 224,
               "width": 89,
               "height": 16,
               "customInputs": [],
@@ -178,7 +188,7 @@
               "objID": "f6c51a81-62e9-4205-9d95-9db0feba1927",
               "type": "LVGLButtonWidget",
               "left": 350,
-              "top": 395,
+              "top": 312,
               "width": 100,
               "height": 50,
               "customInputs": [],

@@ -516,3 +516,4 @@
 "./Drivers/lvgl/src/widgets/textarea/lv_textarea.o"
 "./Drivers/lvgl/src/widgets/tileview/lv_tileview.o"
 "./Drivers/lvgl/src/widgets/win/lv_win.o"
+"./Drivers/touch/gt911.o"

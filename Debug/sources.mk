@@ -177,4 +177,5 @@ Drivers/lvgl/src/widgets/tabview \
 Drivers/lvgl/src/widgets/textarea \
 Drivers/lvgl/src/widgets/tileview \
 Drivers/lvgl/src/widgets/win \
+Drivers/touch \
 

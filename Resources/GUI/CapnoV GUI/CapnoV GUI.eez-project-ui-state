@@ -1,5 +1,7 @@
 {
   "navigation": {
+    "selectedUserPageObject": "[CapnoV GUI.eez-project]:/userPages/0",
+    "selectedActionObject": "[CapnoV GUI.eez-project]:/actions/0",
     "subnavigationSelectedItems": {}
   },
   "layoutModel": {
@@ -68,6 +70,7 @@
           {
             "type": "border",
             "selected": 1,
+            "size": 124.5,
             "location": "bottom",
             "children": [
               {
@@ -114,12 +117,13 @@
             {
               "type": "row",
               "id": "#5559db71-399d-46e7-a5fd-62ce04c89229",
-              "weight": 15,
+              "weight": 20.039867109634553,
               "children": [
                 {
                   "type": "tabset",
                   "id": "#43ec4b1f-ee7b-4752-a740-73f45e517c95",
                   "weight": 1,
+                  "selected": 2,
                   "enableClose": false,
                   "children": [
                     {
@@ -185,7 +189,7 @@
             {
               "type": "tabset",
               "id": "EDITORS",
-              "weight": 65,
+              "weight": 59.96013289036545,
               "enableDeleteWhenEmpty": false,
               "enableClose": false,
               "children": [
@@ -1076,6 +1080,7 @@
   "searchMatchWholeWord": false,
   "replaceEnabled": false,
   "replaceText": "",
+  "pageRuntimeFrontFace": true,
   "breakpoints": {},
   "watchExpressions": [],
   "showComponentDescriptions": true,
