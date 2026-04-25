@@ -23,6 +23,7 @@
 /* USER CODE BEGIN Includes */
 #include "lvgl.h"
 #include "ui.h"          /* EEZ generated */
+#include "gt911.h"        /* Touch Driver */
 #include <stdint.h>
 #include <string.h>
 /* USER CODE END Includes */
