@@ -2,7 +2,7 @@ Drivers/lvgl/src/libs/vg_lite_driver/lv_vg_lite_hal/vg_lite_os.o: \
  ../Drivers/lvgl/src/libs/vg_lite_driver/lv_vg_lite_hal/vg_lite_os.c \
  ../Drivers/lvgl/src/libs/vg_lite_driver/lv_vg_lite_hal/../../../lv_conf_internal.h \
  ../Drivers/lvgl/src/libs/vg_lite_driver/lv_vg_lite_hal/../../../lv_conf_kconfig.h \
- ../Core/Inc/lv_conf.h
+ C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h
 ../Drivers/lvgl/src/libs/vg_lite_driver/lv_vg_lite_hal/../../../lv_conf_internal.h:
 ../Drivers/lvgl/src/libs/vg_lite_driver/lv_vg_lite_hal/../../../lv_conf_kconfig.h:
-../Core/Inc/lv_conf.h:
+C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h:

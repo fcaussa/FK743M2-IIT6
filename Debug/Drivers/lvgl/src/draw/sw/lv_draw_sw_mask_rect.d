@@ -4,7 +4,8 @@ Drivers/lvgl/src/draw/sw/lv_draw_sw_mask_rect.o: \
  ../Drivers/lvgl/src/draw/sw/../../misc/lv_area.h \
  ../Drivers/lvgl/src/draw/sw/../../misc/../lv_conf_internal.h \
  ../Drivers/lvgl/src/draw/sw/../../misc/../lv_conf_kconfig.h \
- ../Core/Inc/lv_conf.h ../Drivers/lvgl/src/draw/sw/../../misc/lv_types.h \
+ C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h \
+ ../Drivers/lvgl/src/draw/sw/../../misc/lv_types.h \
  ../Drivers/lvgl/src/draw/sw/../../misc/lv_math.h \
  ../Drivers/lvgl/src/draw/sw/../lv_draw_mask_private.h \
  ../Drivers/lvgl/src/draw/sw/../lv_draw_mask.h \
@@ -124,7 +125,7 @@ Drivers/lvgl/src/draw/sw/lv_draw_sw_mask_rect.o: \
 ../Drivers/lvgl/src/draw/sw/../../misc/lv_area.h:
 ../Drivers/lvgl/src/draw/sw/../../misc/../lv_conf_internal.h:
 ../Drivers/lvgl/src/draw/sw/../../misc/../lv_conf_kconfig.h:
-../Core/Inc/lv_conf.h:
+C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h:
 ../Drivers/lvgl/src/draw/sw/../../misc/lv_types.h:
 ../Drivers/lvgl/src/draw/sw/../../misc/lv_math.h:
 ../Drivers/lvgl/src/draw/sw/../lv_draw_mask_private.h:

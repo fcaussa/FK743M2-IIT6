@@ -5,7 +5,8 @@ Drivers/lvgl/src/draw/lv_draw_mask.o: \
  ../Drivers/lvgl/src/draw/../misc/lv_color.h \
  ../Drivers/lvgl/src/draw/../misc/../lv_conf_internal.h \
  ../Drivers/lvgl/src/draw/../misc/../lv_conf_kconfig.h \
- ../Core/Inc/lv_conf.h ../Drivers/lvgl/src/draw/../misc/lv_assert.h \
+ C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h \
+ ../Drivers/lvgl/src/draw/../misc/lv_assert.h \
  ../Drivers/lvgl/src/draw/../misc/lv_log.h \
  ../Drivers/lvgl/src/draw/../misc/lv_types.h \
  ../Drivers/lvgl/src/draw/../misc/../stdlib/lv_mem.h \
@@ -141,7 +142,7 @@ Drivers/lvgl/src/draw/lv_draw_mask.o: \
 ../Drivers/lvgl/src/draw/../misc/lv_color.h:
 ../Drivers/lvgl/src/draw/../misc/../lv_conf_internal.h:
 ../Drivers/lvgl/src/draw/../misc/../lv_conf_kconfig.h:
-../Core/Inc/lv_conf.h:
+C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h:
 ../Drivers/lvgl/src/draw/../misc/lv_assert.h:
 ../Drivers/lvgl/src/draw/../misc/lv_log.h:
 ../Drivers/lvgl/src/draw/../misc/lv_types.h:

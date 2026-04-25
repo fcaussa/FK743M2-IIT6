@@ -2,7 +2,7 @@ Drivers/lvgl/src/drivers/display/st_ltdc/lv_st_ltdc.o: \
  ../Drivers/lvgl/src/drivers/display/st_ltdc/lv_st_ltdc.c \
  ../Drivers/lvgl/src/drivers/display/st_ltdc/../../../lv_conf_internal.h \
  ../Drivers/lvgl/src/drivers/display/st_ltdc/../../../lv_conf_kconfig.h \
- ../Core/Inc/lv_conf.h
+ C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h
 ../Drivers/lvgl/src/drivers/display/st_ltdc/../../../lv_conf_internal.h:
 ../Drivers/lvgl/src/drivers/display/st_ltdc/../../../lv_conf_kconfig.h:
-../Core/Inc/lv_conf.h:
+C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h:

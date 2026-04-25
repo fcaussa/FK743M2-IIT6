@@ -2,7 +2,8 @@ Drivers/lvgl/src/misc/lv_fs.o: ../Drivers/lvgl/src/misc/lv_fs.c \
  ../Drivers/lvgl/src/misc/lv_fs_private.h \
  ../Drivers/lvgl/src/misc/lv_fs.h \
  ../Drivers/lvgl/src/misc/../lv_conf_internal.h \
- ../Drivers/lvgl/src/misc/../lv_conf_kconfig.h ../Core/Inc/lv_conf.h \
+ ../Drivers/lvgl/src/misc/../lv_conf_kconfig.h \
+ C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h \
  ../Drivers/lvgl/src/misc/lv_types.h \
  ../Drivers/lvgl/src/misc/../misc/lv_assert.h \
  ../Drivers/lvgl/src/misc/../misc/../lv_conf_internal.h \
@@ -216,7 +217,7 @@ Drivers/lvgl/src/misc/lv_fs.o: ../Drivers/lvgl/src/misc/lv_fs.c \
 ../Drivers/lvgl/src/misc/lv_fs.h:
 ../Drivers/lvgl/src/misc/../lv_conf_internal.h:
 ../Drivers/lvgl/src/misc/../lv_conf_kconfig.h:
-../Core/Inc/lv_conf.h:
+C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h:
 ../Drivers/lvgl/src/misc/lv_types.h:
 ../Drivers/lvgl/src/misc/../misc/lv_assert.h:
 ../Drivers/lvgl/src/misc/../misc/../lv_conf_internal.h:

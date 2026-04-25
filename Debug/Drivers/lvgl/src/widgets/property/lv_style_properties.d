@@ -5,7 +5,7 @@ Drivers/lvgl/src/widgets/property/lv_style_properties.o: \
  ../Drivers/lvgl/src/widgets/property/../../core/../misc/lv_types.h \
  ../Drivers/lvgl/src/widgets/property/../../core/../misc/../lv_conf_internal.h \
  ../Drivers/lvgl/src/widgets/property/../../core/../misc/../lv_conf_kconfig.h \
- ../Core/Inc/lv_conf.h \
+ C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h \
  ../Drivers/lvgl/src/widgets/property/../../core/../misc/lv_style.h \
  ../Drivers/lvgl/src/widgets/property/../../core/../misc/../font/lv_font.h \
  ../Drivers/lvgl/src/widgets/property/../../core/../misc/../font/../lv_conf_internal.h \
@@ -62,7 +62,7 @@ Drivers/lvgl/src/widgets/property/lv_style_properties.o: \
 ../Drivers/lvgl/src/widgets/property/../../core/../misc/lv_types.h:
 ../Drivers/lvgl/src/widgets/property/../../core/../misc/../lv_conf_internal.h:
 ../Drivers/lvgl/src/widgets/property/../../core/../misc/../lv_conf_kconfig.h:
-../Core/Inc/lv_conf.h:
+C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h:
 ../Drivers/lvgl/src/widgets/property/../../core/../misc/lv_style.h:
 ../Drivers/lvgl/src/widgets/property/../../core/../misc/../font/lv_font.h:
 ../Drivers/lvgl/src/widgets/property/../../core/../misc/../font/../lv_conf_internal.h:

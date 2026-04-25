@@ -5,7 +5,7 @@ Drivers/lvgl/src/widgets/calendar/lv_calendar_header_dropdown.o: \
  ../Drivers/lvgl/src/widgets/calendar/../../core/../misc/lv_types.h \
  ../Drivers/lvgl/src/widgets/calendar/../../core/../misc/../lv_conf_internal.h \
  ../Drivers/lvgl/src/widgets/calendar/../../core/../misc/../lv_conf_kconfig.h \
- ../Core/Inc/lv_conf.h \
+ C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h \
  ../Drivers/lvgl/src/widgets/calendar/../../core/../misc/lv_area.h \
  ../Drivers/lvgl/src/widgets/calendar/../../core/../misc/lv_types.h \
  ../Drivers/lvgl/src/widgets/calendar/../../core/../misc/lv_math.h \
@@ -140,7 +140,7 @@ Drivers/lvgl/src/widgets/calendar/lv_calendar_header_dropdown.o: \
 ../Drivers/lvgl/src/widgets/calendar/../../core/../misc/lv_types.h:
 ../Drivers/lvgl/src/widgets/calendar/../../core/../misc/../lv_conf_internal.h:
 ../Drivers/lvgl/src/widgets/calendar/../../core/../misc/../lv_conf_kconfig.h:
-../Core/Inc/lv_conf.h:
+C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h:
 ../Drivers/lvgl/src/widgets/calendar/../../core/../misc/lv_area.h:
 ../Drivers/lvgl/src/widgets/calendar/../../core/../misc/lv_types.h:
 ../Drivers/lvgl/src/widgets/calendar/../../core/../misc/lv_math.h:

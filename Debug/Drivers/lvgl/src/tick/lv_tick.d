@@ -2,7 +2,8 @@ Drivers/lvgl/src/tick/lv_tick.o: ../Drivers/lvgl/src/tick/lv_tick.c \
  ../Drivers/lvgl/src/tick/lv_tick_private.h \
  ../Drivers/lvgl/src/tick/lv_tick.h \
  ../Drivers/lvgl/src/tick/../lv_conf_internal.h \
- ../Drivers/lvgl/src/tick/../lv_conf_kconfig.h ../Core/Inc/lv_conf.h \
+ ../Drivers/lvgl/src/tick/../lv_conf_kconfig.h \
+ C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h \
  ../Drivers/lvgl/src/tick/../misc/lv_types.h \
  ../Drivers/lvgl/src/tick/../misc/../lv_conf_internal.h \
  ../Drivers/lvgl/src/tick/../core/lv_global.h \
@@ -208,7 +209,7 @@ Drivers/lvgl/src/tick/lv_tick.o: ../Drivers/lvgl/src/tick/lv_tick.c \
 ../Drivers/lvgl/src/tick/lv_tick.h:
 ../Drivers/lvgl/src/tick/../lv_conf_internal.h:
 ../Drivers/lvgl/src/tick/../lv_conf_kconfig.h:
-../Core/Inc/lv_conf.h:
+C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h:
 ../Drivers/lvgl/src/tick/../misc/lv_types.h:
 ../Drivers/lvgl/src/tick/../misc/../lv_conf_internal.h:
 ../Drivers/lvgl/src/tick/../core/lv_global.h:

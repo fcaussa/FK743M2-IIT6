@@ -4,7 +4,7 @@ Drivers/lvgl/src/libs/gif/AnimatedGIF/src/gif.o: \
  ../Drivers/lvgl/src/libs/gif/AnimatedGIF/src/../../../../misc/lv_fs.h \
  ../Drivers/lvgl/src/libs/gif/AnimatedGIF/src/../../../../misc/../lv_conf_internal.h \
  ../Drivers/lvgl/src/libs/gif/AnimatedGIF/src/../../../../misc/../lv_conf_kconfig.h \
- ../Core/Inc/lv_conf.h \
+ C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h \
  ../Drivers/lvgl/src/libs/gif/AnimatedGIF/src/../../../../misc/lv_types.h \
  ../Drivers/lvgl/src/libs/gif/AnimatedGIF/src/../../../../lv_conf_internal.h \
  ../Drivers/lvgl/src/libs/gif/AnimatedGIF/src/../../../../stdlib/lv_string.h \
@@ -14,7 +14,7 @@ Drivers/lvgl/src/libs/gif/AnimatedGIF/src/gif.o: \
 ../Drivers/lvgl/src/libs/gif/AnimatedGIF/src/../../../../misc/lv_fs.h:
 ../Drivers/lvgl/src/libs/gif/AnimatedGIF/src/../../../../misc/../lv_conf_internal.h:
 ../Drivers/lvgl/src/libs/gif/AnimatedGIF/src/../../../../misc/../lv_conf_kconfig.h:
-../Core/Inc/lv_conf.h:
+C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h:
 ../Drivers/lvgl/src/libs/gif/AnimatedGIF/src/../../../../misc/lv_types.h:
 ../Drivers/lvgl/src/libs/gif/AnimatedGIF/src/../../../../lv_conf_internal.h:
 ../Drivers/lvgl/src/libs/gif/AnimatedGIF/src/../../../../stdlib/lv_string.h:

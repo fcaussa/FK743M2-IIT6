@@ -4,7 +4,7 @@ Drivers/lvgl/src/widgets/scale/lv_scale.o: \
  ../Drivers/lvgl/src/widgets/scale/lv_scale.h \
  ../Drivers/lvgl/src/widgets/scale/../../lv_conf_internal.h \
  ../Drivers/lvgl/src/widgets/scale/../../lv_conf_kconfig.h \
- ../Core/Inc/lv_conf.h \
+ C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h \
  ../Drivers/lvgl/src/widgets/scale/../../core/lv_obj.h \
  ../Drivers/lvgl/src/widgets/scale/../../core/../lv_conf_internal.h \
  ../Drivers/lvgl/src/widgets/scale/../../core/../misc/lv_types.h \
@@ -142,7 +142,7 @@ Drivers/lvgl/src/widgets/scale/lv_scale.o: \
 ../Drivers/lvgl/src/widgets/scale/lv_scale.h:
 ../Drivers/lvgl/src/widgets/scale/../../lv_conf_internal.h:
 ../Drivers/lvgl/src/widgets/scale/../../lv_conf_kconfig.h:
-../Core/Inc/lv_conf.h:
+C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h:
 ../Drivers/lvgl/src/widgets/scale/../../core/lv_obj.h:
 ../Drivers/lvgl/src/widgets/scale/../../core/../lv_conf_internal.h:
 ../Drivers/lvgl/src/widgets/scale/../../core/../misc/lv_types.h:

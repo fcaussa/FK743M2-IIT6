@@ -3,7 +3,8 @@ Drivers/lvgl/src/layouts/lv_layout.o: \
  ../Drivers/lvgl/src/layouts/lv_layout_private.h \
  ../Drivers/lvgl/src/layouts/lv_layout.h \
  ../Drivers/lvgl/src/layouts/../lv_conf_internal.h \
- ../Drivers/lvgl/src/layouts/../lv_conf_kconfig.h ../Core/Inc/lv_conf.h \
+ ../Drivers/lvgl/src/layouts/../lv_conf_kconfig.h \
+ C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h \
  ../Drivers/lvgl/src/layouts/../misc/lv_types.h \
  ../Drivers/lvgl/src/layouts/../misc/../lv_conf_internal.h \
  ../Drivers/lvgl/src/layouts/flex/lv_flex.h \
@@ -213,7 +214,7 @@ Drivers/lvgl/src/layouts/lv_layout.o: \
 ../Drivers/lvgl/src/layouts/lv_layout.h:
 ../Drivers/lvgl/src/layouts/../lv_conf_internal.h:
 ../Drivers/lvgl/src/layouts/../lv_conf_kconfig.h:
-../Core/Inc/lv_conf.h:
+C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h:
 ../Drivers/lvgl/src/layouts/../misc/lv_types.h:
 ../Drivers/lvgl/src/layouts/../misc/../lv_conf_internal.h:
 ../Drivers/lvgl/src/layouts/flex/lv_flex.h:

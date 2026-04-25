@@ -4,7 +4,7 @@ Drivers/lvgl/src/widgets/spinner/lv_spinner.o: \
  ../Drivers/lvgl/src/widgets/spinner/../../misc/lv_anim.h \
  ../Drivers/lvgl/src/widgets/spinner/../../misc/../lv_conf_internal.h \
  ../Drivers/lvgl/src/widgets/spinner/../../misc/../lv_conf_kconfig.h \
- ../Core/Inc/lv_conf.h \
+ C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h \
  ../Drivers/lvgl/src/widgets/spinner/../../misc/lv_types.h \
  ../Drivers/lvgl/src/widgets/spinner/../../misc/lv_math.h \
  ../Drivers/lvgl/src/widgets/spinner/../../misc/lv_timer.h \
@@ -457,7 +457,7 @@ Drivers/lvgl/src/widgets/spinner/lv_spinner.o: \
 ../Drivers/lvgl/src/widgets/spinner/../../misc/lv_anim.h:
 ../Drivers/lvgl/src/widgets/spinner/../../misc/../lv_conf_internal.h:
 ../Drivers/lvgl/src/widgets/spinner/../../misc/../lv_conf_kconfig.h:
-../Core/Inc/lv_conf.h:
+C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h:
 ../Drivers/lvgl/src/widgets/spinner/../../misc/lv_types.h:
 ../Drivers/lvgl/src/widgets/spinner/../../misc/lv_math.h:
 ../Drivers/lvgl/src/widgets/spinner/../../misc/lv_timer.h:

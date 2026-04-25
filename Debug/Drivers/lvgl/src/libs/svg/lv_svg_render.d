@@ -5,7 +5,7 @@ Drivers/lvgl/src/libs/svg/lv_svg_render.o: \
  ../Drivers/lvgl/src/libs/svg/../../../src/lv_init.h \
  ../Drivers/lvgl/src/libs/svg/../../../src/lv_conf_internal.h \
  ../Drivers/lvgl/src/libs/svg/../../../src/lv_conf_kconfig.h \
- ../Core/Inc/lv_conf.h \
+ C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h \
  ../Drivers/lvgl/src/libs/svg/../../../src/misc/lv_types.h \
  ../Drivers/lvgl/src/libs/svg/../../../src/misc/../lv_conf_internal.h \
  ../Drivers/lvgl/src/libs/svg/../../../src/stdlib/lv_mem.h \
@@ -445,7 +445,7 @@ Drivers/lvgl/src/libs/svg/lv_svg_render.o: \
 ../Drivers/lvgl/src/libs/svg/../../../src/lv_init.h:
 ../Drivers/lvgl/src/libs/svg/../../../src/lv_conf_internal.h:
 ../Drivers/lvgl/src/libs/svg/../../../src/lv_conf_kconfig.h:
-../Core/Inc/lv_conf.h:
+C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h:
 ../Drivers/lvgl/src/libs/svg/../../../src/misc/lv_types.h:
 ../Drivers/lvgl/src/libs/svg/../../../src/misc/../lv_conf_internal.h:
 ../Drivers/lvgl/src/libs/svg/../../../src/stdlib/lv_mem.h:

@@ -4,7 +4,7 @@ Drivers/lvgl/src/libs/bin_decoder/lv_bin_decoder.o: \
  ../Drivers/lvgl/src/libs/bin_decoder/../../draw/lv_image_decoder.h \
  ../Drivers/lvgl/src/libs/bin_decoder/../../draw/../lv_conf_internal.h \
  ../Drivers/lvgl/src/libs/bin_decoder/../../draw/../lv_conf_kconfig.h \
- ../Core/Inc/lv_conf.h \
+ C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h \
  ../Drivers/lvgl/src/libs/bin_decoder/../../draw/lv_draw_buf.h \
  ../Drivers/lvgl/src/libs/bin_decoder/../../draw/../misc/lv_types.h \
  ../Drivers/lvgl/src/libs/bin_decoder/../../draw/../misc/../lv_conf_internal.h \
@@ -209,7 +209,7 @@ Drivers/lvgl/src/libs/bin_decoder/lv_bin_decoder.o: \
 ../Drivers/lvgl/src/libs/bin_decoder/../../draw/lv_image_decoder.h:
 ../Drivers/lvgl/src/libs/bin_decoder/../../draw/../lv_conf_internal.h:
 ../Drivers/lvgl/src/libs/bin_decoder/../../draw/../lv_conf_kconfig.h:
-../Core/Inc/lv_conf.h:
+C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h:
 ../Drivers/lvgl/src/libs/bin_decoder/../../draw/lv_draw_buf.h:
 ../Drivers/lvgl/src/libs/bin_decoder/../../draw/../misc/lv_types.h:
 ../Drivers/lvgl/src/libs/bin_decoder/../../draw/../misc/../lv_conf_internal.h:

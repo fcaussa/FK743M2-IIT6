@@ -6,7 +6,7 @@ Drivers/lvgl/src/draw/vg_lite/lv_draw_vg_lite_label.o: \
  ../Drivers/lvgl/src/draw/vg_lite/../../../src/lv_init.h \
  ../Drivers/lvgl/src/draw/vg_lite/../../../src/lv_conf_internal.h \
  ../Drivers/lvgl/src/draw/vg_lite/../../../src/lv_conf_kconfig.h \
- ../Core/Inc/lv_conf.h \
+ C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h \
  ../Drivers/lvgl/src/draw/vg_lite/../../../src/misc/lv_types.h \
  ../Drivers/lvgl/src/draw/vg_lite/../../../src/misc/../lv_conf_internal.h \
  ../Drivers/lvgl/src/draw/vg_lite/../../../src/stdlib/lv_mem.h \
@@ -447,7 +447,7 @@ Drivers/lvgl/src/draw/vg_lite/lv_draw_vg_lite_label.o: \
 ../Drivers/lvgl/src/draw/vg_lite/../../../src/lv_init.h:
 ../Drivers/lvgl/src/draw/vg_lite/../../../src/lv_conf_internal.h:
 ../Drivers/lvgl/src/draw/vg_lite/../../../src/lv_conf_kconfig.h:
-../Core/Inc/lv_conf.h:
+C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h:
 ../Drivers/lvgl/src/draw/vg_lite/../../../src/misc/lv_types.h:
 ../Drivers/lvgl/src/draw/vg_lite/../../../src/misc/../lv_conf_internal.h:
 ../Drivers/lvgl/src/draw/vg_lite/../../../src/stdlib/lv_mem.h:

@@ -5,7 +5,7 @@ Drivers/lvgl/src/drivers/x11/lv_x11_display.o: \
  ../Drivers/lvgl/src/drivers/x11/../../display/../misc/lv_types.h \
  ../Drivers/lvgl/src/drivers/x11/../../display/../misc/../lv_conf_internal.h \
  ../Drivers/lvgl/src/drivers/x11/../../display/../misc/../lv_conf_kconfig.h \
- ../Core/Inc/lv_conf.h \
+ C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h \
  ../Drivers/lvgl/src/drivers/x11/../../display/../misc/lv_timer.h \
  ../Drivers/lvgl/src/drivers/x11/../../display/../misc/../tick/lv_tick.h \
  ../Drivers/lvgl/src/drivers/x11/../../display/../misc/../tick/../lv_conf_internal.h \
@@ -41,7 +41,7 @@ Drivers/lvgl/src/drivers/x11/lv_x11_display.o: \
 ../Drivers/lvgl/src/drivers/x11/../../display/../misc/lv_types.h:
 ../Drivers/lvgl/src/drivers/x11/../../display/../misc/../lv_conf_internal.h:
 ../Drivers/lvgl/src/drivers/x11/../../display/../misc/../lv_conf_kconfig.h:
-../Core/Inc/lv_conf.h:
+C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h:
 ../Drivers/lvgl/src/drivers/x11/../../display/../misc/lv_timer.h:
 ../Drivers/lvgl/src/drivers/x11/../../display/../misc/../tick/lv_tick.h:
 ../Drivers/lvgl/src/drivers/x11/../../display/../misc/../tick/../lv_conf_internal.h:

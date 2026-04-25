@@ -5,7 +5,7 @@ Drivers/lvgl/src/themes/default/lv_theme_default.o: \
  ../Drivers/lvgl/src/themes/default/../../../src/lv_init.h \
  ../Drivers/lvgl/src/themes/default/../../../src/lv_conf_internal.h \
  ../Drivers/lvgl/src/themes/default/../../../src/lv_conf_kconfig.h \
- ../Core/Inc/lv_conf.h \
+ C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h \
  ../Drivers/lvgl/src/themes/default/../../../src/misc/lv_types.h \
  ../Drivers/lvgl/src/themes/default/../../../src/misc/../lv_conf_internal.h \
  ../Drivers/lvgl/src/themes/default/../../../src/stdlib/lv_mem.h \
@@ -530,7 +530,7 @@ Drivers/lvgl/src/themes/default/lv_theme_default.o: \
 ../Drivers/lvgl/src/themes/default/../../../src/lv_init.h:
 ../Drivers/lvgl/src/themes/default/../../../src/lv_conf_internal.h:
 ../Drivers/lvgl/src/themes/default/../../../src/lv_conf_kconfig.h:
-../Core/Inc/lv_conf.h:
+C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h:
 ../Drivers/lvgl/src/themes/default/../../../src/misc/lv_types.h:
 ../Drivers/lvgl/src/themes/default/../../../src/misc/../lv_conf_internal.h:
 ../Drivers/lvgl/src/themes/default/../../../src/stdlib/lv_mem.h:

@@ -5,7 +5,7 @@ Drivers/lvgl/src/others/sysmon/lv_sysmon.o: \
  ../Drivers/lvgl/src/others/sysmon/../../misc/lv_timer.h \
  ../Drivers/lvgl/src/others/sysmon/../../misc/../lv_conf_internal.h \
  ../Drivers/lvgl/src/others/sysmon/../../misc/../lv_conf_kconfig.h \
- ../Core/Inc/lv_conf.h \
+ C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h \
  ../Drivers/lvgl/src/others/sysmon/../../misc/../tick/lv_tick.h \
  ../Drivers/lvgl/src/others/sysmon/../../misc/../tick/../lv_conf_internal.h \
  ../Drivers/lvgl/src/others/sysmon/../../misc/../tick/../misc/lv_types.h \
@@ -129,7 +129,7 @@ Drivers/lvgl/src/others/sysmon/lv_sysmon.o: \
 ../Drivers/lvgl/src/others/sysmon/../../misc/lv_timer.h:
 ../Drivers/lvgl/src/others/sysmon/../../misc/../lv_conf_internal.h:
 ../Drivers/lvgl/src/others/sysmon/../../misc/../lv_conf_kconfig.h:
-../Core/Inc/lv_conf.h:
+C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h:
 ../Drivers/lvgl/src/others/sysmon/../../misc/../tick/lv_tick.h:
 ../Drivers/lvgl/src/others/sysmon/../../misc/../tick/../lv_conf_internal.h:
 ../Drivers/lvgl/src/others/sysmon/../../misc/../tick/../misc/lv_types.h:

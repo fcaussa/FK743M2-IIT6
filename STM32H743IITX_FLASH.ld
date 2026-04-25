@@ -35,7 +35,12 @@
 ENTRY(Reset_Handler)
 
 /* Highest address of the user mode stack */
-_estack = ORIGIN(RAM_D1) + LENGTH(RAM_D1);    /* end of RAM */
+/* Highest address of the user mode stack */
+/* Stack top — MUST be 0x24060000, NOT end of RAM_D1 (0x2407FFFF).        */
+/* 0x24060000-0x2407FFFF is the NON-CACHEABLE LVGL buffer region.          */
+/* Placing the stack there causes lr=0x0 corruption on Cortex-M7.          */
+_estack = 0x24060000;
+
 /* Generate a link error if heap and stack don't fit into RAM */
 _Min_Heap_Size = 0x200;      /* required amount of heap  */
 _Min_Stack_Size = 0x400; /* required amount of stack */

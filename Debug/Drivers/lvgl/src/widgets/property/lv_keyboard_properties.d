@@ -4,7 +4,7 @@ Drivers/lvgl/src/widgets/property/lv_keyboard_properties.o: \
  ../Drivers/lvgl/src/widgets/property/../keyboard/../buttonmatrix/lv_buttonmatrix.h \
  ../Drivers/lvgl/src/widgets/property/../keyboard/../buttonmatrix/../../lv_conf_internal.h \
  ../Drivers/lvgl/src/widgets/property/../keyboard/../buttonmatrix/../../lv_conf_kconfig.h \
- ../Core/Inc/lv_conf.h \
+ C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h \
  ../Drivers/lvgl/src/widgets/property/../keyboard/../buttonmatrix/../../core/lv_obj.h \
  ../Drivers/lvgl/src/widgets/property/../keyboard/../buttonmatrix/../../core/../lv_conf_internal.h \
  ../Drivers/lvgl/src/widgets/property/../keyboard/../buttonmatrix/../../core/../misc/lv_types.h \
@@ -121,7 +121,7 @@ Drivers/lvgl/src/widgets/property/lv_keyboard_properties.o: \
 ../Drivers/lvgl/src/widgets/property/../keyboard/../buttonmatrix/lv_buttonmatrix.h:
 ../Drivers/lvgl/src/widgets/property/../keyboard/../buttonmatrix/../../lv_conf_internal.h:
 ../Drivers/lvgl/src/widgets/property/../keyboard/../buttonmatrix/../../lv_conf_kconfig.h:
-../Core/Inc/lv_conf.h:
+C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h:
 ../Drivers/lvgl/src/widgets/property/../keyboard/../buttonmatrix/../../core/lv_obj.h:
 ../Drivers/lvgl/src/widgets/property/../keyboard/../buttonmatrix/../../core/../lv_conf_internal.h:
 ../Drivers/lvgl/src/widgets/property/../keyboard/../buttonmatrix/../../core/../misc/lv_types.h:

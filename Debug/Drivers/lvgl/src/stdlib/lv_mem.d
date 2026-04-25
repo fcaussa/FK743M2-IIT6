@@ -2,7 +2,8 @@ Drivers/lvgl/src/stdlib/lv_mem.o: ../Drivers/lvgl/src/stdlib/lv_mem.c \
  ../Drivers/lvgl/src/stdlib/lv_mem_private.h \
  ../Drivers/lvgl/src/stdlib/lv_mem.h \
  ../Drivers/lvgl/src/stdlib/../lv_conf_internal.h \
- ../Drivers/lvgl/src/stdlib/../lv_conf_kconfig.h ../Core/Inc/lv_conf.h \
+ ../Drivers/lvgl/src/stdlib/../lv_conf_kconfig.h \
+ C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h \
  ../Drivers/lvgl/src/stdlib/lv_string.h \
  ../Drivers/lvgl/src/stdlib/../misc/lv_types.h \
  ../Drivers/lvgl/src/stdlib/../misc/../lv_conf_internal.h \
@@ -212,7 +213,7 @@ Drivers/lvgl/src/stdlib/lv_mem.o: ../Drivers/lvgl/src/stdlib/lv_mem.c \
 ../Drivers/lvgl/src/stdlib/lv_mem.h:
 ../Drivers/lvgl/src/stdlib/../lv_conf_internal.h:
 ../Drivers/lvgl/src/stdlib/../lv_conf_kconfig.h:
-../Core/Inc/lv_conf.h:
+C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h:
 ../Drivers/lvgl/src/stdlib/lv_string.h:
 ../Drivers/lvgl/src/stdlib/../misc/lv_types.h:
 ../Drivers/lvgl/src/stdlib/../misc/../lv_conf_internal.h:

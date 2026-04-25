@@ -1,7 +1,8 @@
 Drivers/lvgl/src/misc/lv_utils.o: ../Drivers/lvgl/src/misc/lv_utils.c \
  ../Drivers/lvgl/src/misc/lv_utils.h ../Drivers/lvgl/src/misc/lv_types.h \
  ../Drivers/lvgl/src/misc/../lv_conf_internal.h \
- ../Drivers/lvgl/src/misc/../lv_conf_kconfig.h ../Core/Inc/lv_conf.h \
+ ../Drivers/lvgl/src/misc/../lv_conf_kconfig.h \
+ C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h \
  ../Drivers/lvgl/src/misc/../draw/lv_draw_buf.h \
  ../Drivers/lvgl/src/misc/../draw/../misc/lv_types.h \
  ../Drivers/lvgl/src/misc/../draw/../misc/lv_area.h \
@@ -44,7 +45,7 @@ Drivers/lvgl/src/misc/lv_utils.o: ../Drivers/lvgl/src/misc/lv_utils.c \
 ../Drivers/lvgl/src/misc/lv_types.h:
 ../Drivers/lvgl/src/misc/../lv_conf_internal.h:
 ../Drivers/lvgl/src/misc/../lv_conf_kconfig.h:
-../Core/Inc/lv_conf.h:
+C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h:
 ../Drivers/lvgl/src/misc/../draw/lv_draw_buf.h:
 ../Drivers/lvgl/src/misc/../draw/../misc/lv_types.h:
 ../Drivers/lvgl/src/misc/../draw/../misc/lv_area.h:

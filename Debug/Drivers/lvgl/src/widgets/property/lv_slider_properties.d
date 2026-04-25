@@ -4,7 +4,7 @@ Drivers/lvgl/src/widgets/property/lv_slider_properties.o: \
  ../Drivers/lvgl/src/widgets/property/../slider/../bar/lv_bar.h \
  ../Drivers/lvgl/src/widgets/property/../slider/../bar/../../lv_conf_internal.h \
  ../Drivers/lvgl/src/widgets/property/../slider/../bar/../../lv_conf_kconfig.h \
- ../Core/Inc/lv_conf.h \
+ C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h \
  ../Drivers/lvgl/src/widgets/property/../slider/../bar/../../core/lv_obj.h \
  ../Drivers/lvgl/src/widgets/property/../slider/../bar/../../core/../lv_conf_internal.h \
  ../Drivers/lvgl/src/widgets/property/../slider/../bar/../../core/../misc/lv_types.h \
@@ -133,7 +133,7 @@ Drivers/lvgl/src/widgets/property/lv_slider_properties.o: \
 ../Drivers/lvgl/src/widgets/property/../slider/../bar/lv_bar.h:
 ../Drivers/lvgl/src/widgets/property/../slider/../bar/../../lv_conf_internal.h:
 ../Drivers/lvgl/src/widgets/property/../slider/../bar/../../lv_conf_kconfig.h:
-../Core/Inc/lv_conf.h:
+C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h:
 ../Drivers/lvgl/src/widgets/property/../slider/../bar/../../core/lv_obj.h:
 ../Drivers/lvgl/src/widgets/property/../slider/../bar/../../core/../lv_conf_internal.h:
 ../Drivers/lvgl/src/widgets/property/../slider/../bar/../../core/../misc/lv_types.h:

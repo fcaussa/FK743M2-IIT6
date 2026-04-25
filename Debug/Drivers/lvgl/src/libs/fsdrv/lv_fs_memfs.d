@@ -4,7 +4,7 @@ Drivers/lvgl/src/libs/fsdrv/lv_fs_memfs.o: \
  ../Drivers/lvgl/src/libs/fsdrv/../../misc/lv_fs.h \
  ../Drivers/lvgl/src/libs/fsdrv/../../misc/../lv_conf_internal.h \
  ../Drivers/lvgl/src/libs/fsdrv/../../misc/../lv_conf_kconfig.h \
- ../Core/Inc/lv_conf.h \
+ C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h \
  ../Drivers/lvgl/src/libs/fsdrv/../../misc/lv_types.h \
  ../Drivers/lvgl/src/libs/fsdrv/../../../lvgl.h \
  ../Drivers/lvgl/src/libs/fsdrv/../../../lv_version.h \
@@ -446,7 +446,7 @@ Drivers/lvgl/src/libs/fsdrv/lv_fs_memfs.o: \
 ../Drivers/lvgl/src/libs/fsdrv/../../misc/lv_fs.h:
 ../Drivers/lvgl/src/libs/fsdrv/../../misc/../lv_conf_internal.h:
 ../Drivers/lvgl/src/libs/fsdrv/../../misc/../lv_conf_kconfig.h:
-../Core/Inc/lv_conf.h:
+C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h:
 ../Drivers/lvgl/src/libs/fsdrv/../../misc/lv_types.h:
 ../Drivers/lvgl/src/libs/fsdrv/../../../lvgl.h:
 ../Drivers/lvgl/src/libs/fsdrv/../../../lv_version.h:

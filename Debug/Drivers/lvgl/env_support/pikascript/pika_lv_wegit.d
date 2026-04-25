@@ -5,7 +5,7 @@ Drivers/lvgl/env_support/pikascript/pika_lv_wegit.o: \
  ../Drivers/lvgl/env_support/pikascript/../../src/lv_init.h \
  ../Drivers/lvgl/env_support/pikascript/../../src/lv_conf_internal.h \
  ../Drivers/lvgl/env_support/pikascript/../../src/lv_conf_kconfig.h \
- ../Core/Inc/lv_conf.h \
+ C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h \
  ../Drivers/lvgl/env_support/pikascript/../../src/misc/lv_types.h \
  ../Drivers/lvgl/env_support/pikascript/../../src/misc/../lv_conf_internal.h \
  ../Drivers/lvgl/env_support/pikascript/../../src/stdlib/lv_mem.h \
@@ -444,7 +444,7 @@ Drivers/lvgl/env_support/pikascript/pika_lv_wegit.o: \
 ../Drivers/lvgl/env_support/pikascript/../../src/lv_init.h:
 ../Drivers/lvgl/env_support/pikascript/../../src/lv_conf_internal.h:
 ../Drivers/lvgl/env_support/pikascript/../../src/lv_conf_kconfig.h:
-../Core/Inc/lv_conf.h:
+C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h:
 ../Drivers/lvgl/env_support/pikascript/../../src/misc/lv_types.h:
 ../Drivers/lvgl/env_support/pikascript/../../src/misc/../lv_conf_internal.h:
 ../Drivers/lvgl/env_support/pikascript/../../src/stdlib/lv_mem.h:

@@ -4,7 +4,8 @@ Drivers/lvgl/src/misc/cache/lv_cache.o: \
  ../Drivers/lvgl/src/misc/cache/../lv_types.h \
  ../Drivers/lvgl/src/misc/cache/../../lv_conf_internal.h \
  ../Drivers/lvgl/src/misc/cache/../../lv_conf_kconfig.h \
- ../Core/Inc/lv_conf.h ../Drivers/lvgl/src/misc/cache/lv_cache_entry.h \
+ C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h \
+ ../Drivers/lvgl/src/misc/cache/lv_cache_entry.h \
  ../Drivers/lvgl/src/misc/cache/class/lv_cache_class.h \
  ../Drivers/lvgl/src/misc/cache/class/lv_cache_lru_rb.h \
  ../Drivers/lvgl/src/misc/cache/class/../lv_cache_private.h \
@@ -35,7 +36,7 @@ Drivers/lvgl/src/misc/cache/lv_cache.o: \
 ../Drivers/lvgl/src/misc/cache/../lv_types.h:
 ../Drivers/lvgl/src/misc/cache/../../lv_conf_internal.h:
 ../Drivers/lvgl/src/misc/cache/../../lv_conf_kconfig.h:
-../Core/Inc/lv_conf.h:
+C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h:
 ../Drivers/lvgl/src/misc/cache/lv_cache_entry.h:
 ../Drivers/lvgl/src/misc/cache/class/lv_cache_class.h:
 ../Drivers/lvgl/src/misc/cache/class/lv_cache_lru_rb.h:

@@ -4,7 +4,7 @@ Drivers/lvgl/src/libs/tjpgd/lv_tjpgd.o: \
  ../Drivers/lvgl/src/libs/tjpgd/../../draw/lv_image_decoder.h \
  ../Drivers/lvgl/src/libs/tjpgd/../../draw/../lv_conf_internal.h \
  ../Drivers/lvgl/src/libs/tjpgd/../../draw/../lv_conf_kconfig.h \
- ../Core/Inc/lv_conf.h \
+ C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h \
  ../Drivers/lvgl/src/libs/tjpgd/../../draw/lv_draw_buf.h \
  ../Drivers/lvgl/src/libs/tjpgd/../../draw/../misc/lv_types.h \
  ../Drivers/lvgl/src/libs/tjpgd/../../draw/../misc/../lv_conf_internal.h \
@@ -463,7 +463,7 @@ Drivers/lvgl/src/libs/tjpgd/lv_tjpgd.o: \
 ../Drivers/lvgl/src/libs/tjpgd/../../draw/lv_image_decoder.h:
 ../Drivers/lvgl/src/libs/tjpgd/../../draw/../lv_conf_internal.h:
 ../Drivers/lvgl/src/libs/tjpgd/../../draw/../lv_conf_kconfig.h:
-../Core/Inc/lv_conf.h:
+C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h:
 ../Drivers/lvgl/src/libs/tjpgd/../../draw/lv_draw_buf.h:
 ../Drivers/lvgl/src/libs/tjpgd/../../draw/../misc/lv_types.h:
 ../Drivers/lvgl/src/libs/tjpgd/../../draw/../misc/../lv_conf_internal.h:

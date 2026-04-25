@@ -3,7 +3,7 @@ Drivers/lvgl/src/widgets/property/lv_image_properties.o: \
  ../Drivers/lvgl/src/widgets/property/../image/lv_image.h \
  ../Drivers/lvgl/src/widgets/property/../image/../../lv_conf_internal.h \
  ../Drivers/lvgl/src/widgets/property/../image/../../lv_conf_kconfig.h \
- ../Core/Inc/lv_conf.h \
+ C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h \
  ../Drivers/lvgl/src/widgets/property/../image/../../core/lv_obj.h \
  ../Drivers/lvgl/src/widgets/property/../image/../../core/../lv_conf_internal.h \
  ../Drivers/lvgl/src/widgets/property/../image/../../core/../misc/lv_types.h \
@@ -123,7 +123,7 @@ Drivers/lvgl/src/widgets/property/lv_image_properties.o: \
 ../Drivers/lvgl/src/widgets/property/../image/lv_image.h:
 ../Drivers/lvgl/src/widgets/property/../image/../../lv_conf_internal.h:
 ../Drivers/lvgl/src/widgets/property/../image/../../lv_conf_kconfig.h:
-../Core/Inc/lv_conf.h:
+C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h:
 ../Drivers/lvgl/src/widgets/property/../image/../../core/lv_obj.h:
 ../Drivers/lvgl/src/widgets/property/../image/../../core/../lv_conf_internal.h:
 ../Drivers/lvgl/src/widgets/property/../image/../../core/../misc/lv_types.h:

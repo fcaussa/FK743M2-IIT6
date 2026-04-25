@@ -4,7 +4,8 @@ Drivers/lvgl/src/draw/lv_draw_label.o: \
  ../Drivers/lvgl/src/draw/lv_draw_label.h \
  ../Drivers/lvgl/src/draw/lv_draw.h \
  ../Drivers/lvgl/src/draw/../lv_conf_internal.h \
- ../Drivers/lvgl/src/draw/../lv_conf_kconfig.h ../Core/Inc/lv_conf.h \
+ ../Drivers/lvgl/src/draw/../lv_conf_kconfig.h \
+ C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h \
  ../Drivers/lvgl/src/draw/../misc/lv_types.h \
  ../Drivers/lvgl/src/draw/../misc/../lv_conf_internal.h \
  ../Drivers/lvgl/src/draw/../misc/lv_style.h \
@@ -216,7 +217,7 @@ Drivers/lvgl/src/draw/lv_draw_label.o: \
 ../Drivers/lvgl/src/draw/lv_draw.h:
 ../Drivers/lvgl/src/draw/../lv_conf_internal.h:
 ../Drivers/lvgl/src/draw/../lv_conf_kconfig.h:
-../Core/Inc/lv_conf.h:
+C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h:
 ../Drivers/lvgl/src/draw/../misc/lv_types.h:
 ../Drivers/lvgl/src/draw/../misc/../lv_conf_internal.h:
 ../Drivers/lvgl/src/draw/../misc/lv_style.h:

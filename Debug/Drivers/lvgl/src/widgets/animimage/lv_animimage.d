@@ -6,7 +6,7 @@ Drivers/lvgl/src/widgets/animimage/lv_animimage.o: \
  ../Drivers/lvgl/src/widgets/animimage/../image/../../core/lv_obj.h \
  ../Drivers/lvgl/src/widgets/animimage/../image/../../core/../lv_conf_internal.h \
  ../Drivers/lvgl/src/widgets/animimage/../image/../../core/../lv_conf_kconfig.h \
- ../Core/Inc/lv_conf.h \
+ C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h \
  ../Drivers/lvgl/src/widgets/animimage/../image/../../core/../misc/lv_types.h \
  ../Drivers/lvgl/src/widgets/animimage/../image/../../core/../misc/../lv_conf_internal.h \
  ../Drivers/lvgl/src/widgets/animimage/../image/../../core/../misc/lv_style.h \
@@ -145,7 +145,7 @@ Drivers/lvgl/src/widgets/animimage/lv_animimage.o: \
 ../Drivers/lvgl/src/widgets/animimage/../image/../../core/lv_obj.h:
 ../Drivers/lvgl/src/widgets/animimage/../image/../../core/../lv_conf_internal.h:
 ../Drivers/lvgl/src/widgets/animimage/../image/../../core/../lv_conf_kconfig.h:
-../Core/Inc/lv_conf.h:
+C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h:
 ../Drivers/lvgl/src/widgets/animimage/../image/../../core/../misc/lv_types.h:
 ../Drivers/lvgl/src/widgets/animimage/../image/../../core/../misc/../lv_conf_internal.h:
 ../Drivers/lvgl/src/widgets/animimage/../image/../../core/../misc/lv_style.h:

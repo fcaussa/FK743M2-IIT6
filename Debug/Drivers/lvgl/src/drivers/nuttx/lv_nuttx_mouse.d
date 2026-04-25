@@ -5,7 +5,7 @@ Drivers/lvgl/src/drivers/nuttx/lv_nuttx_mouse.o: \
  ../Drivers/lvgl/src/drivers/nuttx/../../indev/../core/lv_group.h \
  ../Drivers/lvgl/src/drivers/nuttx/../../indev/../core/../lv_conf_internal.h \
  ../Drivers/lvgl/src/drivers/nuttx/../../indev/../core/../lv_conf_kconfig.h \
- ../Core/Inc/lv_conf.h \
+ C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h \
  ../Drivers/lvgl/src/drivers/nuttx/../../indev/../core/../misc/lv_types.h \
  ../Drivers/lvgl/src/drivers/nuttx/../../indev/../core/../misc/../lv_conf_internal.h \
  ../Drivers/lvgl/src/drivers/nuttx/../../indev/../core/../misc/lv_ll.h \
@@ -26,7 +26,7 @@ Drivers/lvgl/src/drivers/nuttx/lv_nuttx_mouse.o: \
 ../Drivers/lvgl/src/drivers/nuttx/../../indev/../core/lv_group.h:
 ../Drivers/lvgl/src/drivers/nuttx/../../indev/../core/../lv_conf_internal.h:
 ../Drivers/lvgl/src/drivers/nuttx/../../indev/../core/../lv_conf_kconfig.h:
-../Core/Inc/lv_conf.h:
+C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h:
 ../Drivers/lvgl/src/drivers/nuttx/../../indev/../core/../misc/lv_types.h:
 ../Drivers/lvgl/src/drivers/nuttx/../../indev/../core/../misc/../lv_conf_internal.h:
 ../Drivers/lvgl/src/drivers/nuttx/../../indev/../core/../misc/lv_ll.h:

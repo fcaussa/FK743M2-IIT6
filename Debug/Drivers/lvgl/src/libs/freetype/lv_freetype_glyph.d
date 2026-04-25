@@ -6,7 +6,7 @@ Drivers/lvgl/src/libs/freetype/lv_freetype_glyph.o: \
  ../Drivers/lvgl/src/libs/freetype/../../../src/lv_init.h \
  ../Drivers/lvgl/src/libs/freetype/../../../src/lv_conf_internal.h \
  ../Drivers/lvgl/src/libs/freetype/../../../src/lv_conf_kconfig.h \
- ../Core/Inc/lv_conf.h \
+ C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h \
  ../Drivers/lvgl/src/libs/freetype/../../../src/misc/lv_types.h \
  ../Drivers/lvgl/src/libs/freetype/../../../src/misc/../lv_conf_internal.h \
  ../Drivers/lvgl/src/libs/freetype/../../../src/stdlib/lv_mem.h \
@@ -449,7 +449,7 @@ Drivers/lvgl/src/libs/freetype/lv_freetype_glyph.o: \
 ../Drivers/lvgl/src/libs/freetype/../../../src/lv_init.h:
 ../Drivers/lvgl/src/libs/freetype/../../../src/lv_conf_internal.h:
 ../Drivers/lvgl/src/libs/freetype/../../../src/lv_conf_kconfig.h:
-../Core/Inc/lv_conf.h:
+C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h:
 ../Drivers/lvgl/src/libs/freetype/../../../src/misc/lv_types.h:
 ../Drivers/lvgl/src/libs/freetype/../../../src/misc/../lv_conf_internal.h:
 ../Drivers/lvgl/src/libs/freetype/../../../src/stdlib/lv_mem.h:

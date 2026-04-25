@@ -4,7 +4,7 @@ Drivers/lvgl/src/draw/convert/lv_draw_buf_convert.o: \
  ../Drivers/lvgl/src/draw/convert/../../misc/lv_color.h \
  ../Drivers/lvgl/src/draw/convert/../../misc/../lv_conf_internal.h \
  ../Drivers/lvgl/src/draw/convert/../../misc/../lv_conf_kconfig.h \
- ../Core/Inc/lv_conf.h \
+ C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h \
  ../Drivers/lvgl/src/draw/convert/../../misc/lv_assert.h \
  ../Drivers/lvgl/src/draw/convert/../../misc/lv_log.h \
  ../Drivers/lvgl/src/draw/convert/../../misc/lv_types.h \
@@ -27,7 +27,7 @@ Drivers/lvgl/src/draw/convert/lv_draw_buf_convert.o: \
 ../Drivers/lvgl/src/draw/convert/../../misc/lv_color.h:
 ../Drivers/lvgl/src/draw/convert/../../misc/../lv_conf_internal.h:
 ../Drivers/lvgl/src/draw/convert/../../misc/../lv_conf_kconfig.h:
-../Core/Inc/lv_conf.h:
+C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h:
 ../Drivers/lvgl/src/draw/convert/../../misc/lv_assert.h:
 ../Drivers/lvgl/src/draw/convert/../../misc/lv_log.h:
 ../Drivers/lvgl/src/draw/convert/../../misc/lv_types.h:

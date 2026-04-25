@@ -4,7 +4,7 @@ Drivers/lvgl/src/draw/nema_gfx/lv_nema_gfx_path.o: \
  ../Drivers/lvgl/src/draw/nema_gfx/../../core/lv_obj.h \
  ../Drivers/lvgl/src/draw/nema_gfx/../../core/../lv_conf_internal.h \
  ../Drivers/lvgl/src/draw/nema_gfx/../../core/../lv_conf_kconfig.h \
- ../Core/Inc/lv_conf.h \
+ C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h \
  ../Drivers/lvgl/src/draw/nema_gfx/../../core/../misc/lv_types.h \
  ../Drivers/lvgl/src/draw/nema_gfx/../../core/../misc/../lv_conf_internal.h \
  ../Drivers/lvgl/src/draw/nema_gfx/../../core/../misc/lv_style.h \
@@ -119,7 +119,7 @@ Drivers/lvgl/src/draw/nema_gfx/lv_nema_gfx_path.o: \
 ../Drivers/lvgl/src/draw/nema_gfx/../../core/lv_obj.h:
 ../Drivers/lvgl/src/draw/nema_gfx/../../core/../lv_conf_internal.h:
 ../Drivers/lvgl/src/draw/nema_gfx/../../core/../lv_conf_kconfig.h:
-../Core/Inc/lv_conf.h:
+C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h:
 ../Drivers/lvgl/src/draw/nema_gfx/../../core/../misc/lv_types.h:
 ../Drivers/lvgl/src/draw/nema_gfx/../../core/../misc/../lv_conf_internal.h:
 ../Drivers/lvgl/src/draw/nema_gfx/../../core/../misc/lv_style.h:

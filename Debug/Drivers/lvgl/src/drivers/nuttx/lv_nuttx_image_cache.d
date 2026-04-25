@@ -3,7 +3,7 @@ Drivers/lvgl/src/drivers/nuttx/lv_nuttx_image_cache.o: \
  ../Drivers/lvgl/src/drivers/nuttx/lv_nuttx_image_cache.h \
  ../Drivers/lvgl/src/drivers/nuttx/../../lv_conf_internal.h \
  ../Drivers/lvgl/src/drivers/nuttx/../../lv_conf_kconfig.h \
- ../Core/Inc/lv_conf.h \
+ C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h \
  ../Drivers/lvgl/src/drivers/nuttx/../../core/lv_global.h \
  ../Drivers/lvgl/src/drivers/nuttx/../../core/../lv_conf_internal.h \
  ../Drivers/lvgl/src/drivers/nuttx/../../core/../misc/lv_types.h \
@@ -528,7 +528,7 @@ Drivers/lvgl/src/drivers/nuttx/lv_nuttx_image_cache.o: \
 ../Drivers/lvgl/src/drivers/nuttx/lv_nuttx_image_cache.h:
 ../Drivers/lvgl/src/drivers/nuttx/../../lv_conf_internal.h:
 ../Drivers/lvgl/src/drivers/nuttx/../../lv_conf_kconfig.h:
-../Core/Inc/lv_conf.h:
+C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h:
 ../Drivers/lvgl/src/drivers/nuttx/../../core/lv_global.h:
 ../Drivers/lvgl/src/drivers/nuttx/../../core/../lv_conf_internal.h:
 ../Drivers/lvgl/src/drivers/nuttx/../../core/../misc/lv_types.h:

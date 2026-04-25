@@ -4,7 +4,7 @@ Drivers/lvgl/src/draw/vg_lite/lv_draw_vg_lite_fill.o: \
  ../Drivers/lvgl/src/draw/vg_lite/../../misc/lv_area.h \
  ../Drivers/lvgl/src/draw/vg_lite/../../misc/../lv_conf_internal.h \
  ../Drivers/lvgl/src/draw/vg_lite/../../misc/../lv_conf_kconfig.h \
- ../Core/Inc/lv_conf.h \
+ C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h \
  ../Drivers/lvgl/src/draw/vg_lite/../../misc/lv_types.h \
  ../Drivers/lvgl/src/draw/vg_lite/../../misc/lv_math.h \
  ../Drivers/lvgl/src/draw/vg_lite/lv_draw_vg_lite.h \
@@ -13,7 +13,7 @@ Drivers/lvgl/src/draw/vg_lite/lv_draw_vg_lite_fill.o: \
 ../Drivers/lvgl/src/draw/vg_lite/../../misc/lv_area.h:
 ../Drivers/lvgl/src/draw/vg_lite/../../misc/../lv_conf_internal.h:
 ../Drivers/lvgl/src/draw/vg_lite/../../misc/../lv_conf_kconfig.h:
-../Core/Inc/lv_conf.h:
+C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h:
 ../Drivers/lvgl/src/draw/vg_lite/../../misc/lv_types.h:
 ../Drivers/lvgl/src/draw/vg_lite/../../misc/lv_math.h:
 ../Drivers/lvgl/src/draw/vg_lite/lv_draw_vg_lite.h:

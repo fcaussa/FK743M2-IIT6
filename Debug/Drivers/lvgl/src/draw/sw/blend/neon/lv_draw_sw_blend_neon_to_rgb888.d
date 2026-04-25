@@ -3,8 +3,8 @@ Drivers/lvgl/src/draw/sw/blend/neon/lv_draw_sw_blend_neon_to_rgb888.o: \
  ../Drivers/lvgl/src/draw/sw/blend/neon/lv_draw_sw_blend_neon_to_rgb888.h \
  ../Drivers/lvgl/src/draw/sw/blend/neon/../../../../lv_conf_internal.h \
  ../Drivers/lvgl/src/draw/sw/blend/neon/../../../../lv_conf_kconfig.h \
- ../Core/Inc/lv_conf.h
+ C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h
 ../Drivers/lvgl/src/draw/sw/blend/neon/lv_draw_sw_blend_neon_to_rgb888.h:
 ../Drivers/lvgl/src/draw/sw/blend/neon/../../../../lv_conf_internal.h:
 ../Drivers/lvgl/src/draw/sw/blend/neon/../../../../lv_conf_kconfig.h:
-../Core/Inc/lv_conf.h:
+C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h:

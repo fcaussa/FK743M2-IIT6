@@ -2,7 +2,7 @@ Drivers/lvgl/src/libs/frogfs/src/decomp_raw.o: \
  ../Drivers/lvgl/src/libs/frogfs/src/decomp_raw.c \
  ../Drivers/lvgl/src/libs/frogfs/src/../../../lv_conf_internal.h \
  ../Drivers/lvgl/src/libs/frogfs/src/../../../lv_conf_kconfig.h \
- ../Core/Inc/lv_conf.h \
+ C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h \
  ../Drivers/lvgl/src/libs/frogfs/src/../../../stdlib/lv_string.h \
  ../Drivers/lvgl/src/libs/frogfs/src/../../../stdlib/../lv_conf_internal.h \
  ../Drivers/lvgl/src/libs/frogfs/src/../../../stdlib/../misc/lv_types.h \
@@ -17,7 +17,7 @@ Drivers/lvgl/src/libs/frogfs/src/decomp_raw.o: \
  ../Drivers/lvgl/src/libs/frogfs/src/frogfs_format.h
 ../Drivers/lvgl/src/libs/frogfs/src/../../../lv_conf_internal.h:
 ../Drivers/lvgl/src/libs/frogfs/src/../../../lv_conf_kconfig.h:
-../Core/Inc/lv_conf.h:
+C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h:
 ../Drivers/lvgl/src/libs/frogfs/src/../../../stdlib/lv_string.h:
 ../Drivers/lvgl/src/libs/frogfs/src/../../../stdlib/../lv_conf_internal.h:
 ../Drivers/lvgl/src/libs/frogfs/src/../../../stdlib/../misc/lv_types.h:
