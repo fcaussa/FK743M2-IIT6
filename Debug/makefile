@@ -159,6 +159,7 @@ RM := rm -rf
 -include Drivers/lvgl/env_support/rt-thread/subdir.mk
 -include Drivers/lvgl/env_support/pikascript/subdir.mk
 -include Drivers/STM32H7xx_HAL_Driver/Src/subdir.mk
+-include Core/ui/subdir.mk
 -include Core/Startup/subdir.mk
 -include Core/Src/subdir.mk
 -include objects.mk

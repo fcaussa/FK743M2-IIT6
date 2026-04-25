@@ -22,6 +22,7 @@
 
 /* USER CODE BEGIN Includes */
 #include "lvgl.h"
+#include "ui.h"          /* EEZ generated */
 #include <stdint.h>
 #include <string.h>
 /* USER CODE END Includes */
@@ -245,9 +246,13 @@ int main(void)
     lvgl_initialization();
 
     /* Create a simple "Hello World" label to verify LVGL is working */
-    lv_obj_t *label = lv_label_create(lv_screen_active());
-    lv_label_set_text(label, "Hello STM32H743!");
-    lv_obj_center(label);
+    //lv_obj_t *label = lv_label_create(lv_screen_active());
+    //lv_label_set_text(label, "Hello STM32H743!");
+    //lv_obj_center(label);
+
+    // Initialize EEZ UI — must be called AFTER lvgl_initialization()
+    ui_init();             // this calls create_screens() internally
+    lv_screen_load(objects.main);  // load your first screen
 
     /* USER CODE END 2 */
 

@@ -26,6 +26,7 @@ OBJCOPY_BIN :=
 SUBDIRS := \
 Core/Src \
 Core/Startup \
+Core/ui \
 Drivers/STM32H7xx_HAL_Driver/Src \
 Drivers/lvgl/env_support/pikascript \
 Drivers/lvgl/env_support/rt-thread \
