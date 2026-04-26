@@ -488,6 +488,7 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Core/ui/ui.h \
  C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lvgl/lvgl.h \
  C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Core/ui/screens.h \
+ C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Core/ui/actions.h \
  C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/touch/gt911.h
 ../Core/Inc/main.h:
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
@@ -979,4 +980,5 @@ C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lvgl/src/lv_conf_internal.h
 C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Core/ui/ui.h:
 C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lvgl/lvgl.h:
 C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Core/ui/screens.h:
+C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Core/ui/actions.h:
 C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/touch/gt911.h:

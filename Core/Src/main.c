@@ -259,7 +259,7 @@ int main(void)
 
     /* Infinite loop */
     /* USER CODE BEGIN WHILE */
-    uint32_t heartbeat = 0;
+    uint32_t heartbeat = HAL_GetTick(); /* SMT32 millis() equivalent */
 
     while (1)
     {
@@ -269,9 +269,9 @@ int main(void)
         HAL_Delay(5);
 
         /* LED heartbeat — toggle every ~500ms*/
-        heartbeat += 5;
-        if (heartbeat >= 500) {
-            heartbeat = 0;
+
+        if (HAL_GetTick() - heartbeat >= 500) {
+            heartbeat = HAL_GetTick();
             HAL_GPIO_TogglePin(GPIOH, GPIO_PIN_7);
         }
 
