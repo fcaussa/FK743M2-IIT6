@@ -65,7 +65,7 @@ TIM_HandleTypeDef htim12;
 UART_HandleTypeDef huart1;
 PCD_HandleTypeDef hpcd_USB_OTG_FS;
 SDRAM_HandleTypeDef hsdram1;
-
+DMA2D_HandleTypeDef hdma2d;   /* add to private variables */
 /* USER CODE BEGIN PV */
 uint8_t sd_present = 0;
 /* USER CODE END PV */
@@ -82,7 +82,7 @@ static void MX_TIM12_Init(void);
 static void MX_USART1_UART_Init(void);
 static void MX_USB_OTG_FS_PCD_Init(void);
 static void MX_I2C1_Init(void);
-
+static void MX_DMA2D_Init(void);
 /* USER CODE BEGIN PFP */
 static void SDRAM_Initialization_Sequence(SDRAM_HandleTypeDef *hsdram);
 static void lvgl_initialization(void);
@@ -172,6 +172,7 @@ int main(void)
     MX_GPIO_Init();
     MX_FMC_Init();
     MX_LTDC_Init();
+    MX_DMA2D_Init();
     MX_QUADSPI_Init();
     MX_SDMMC1_SD_Init();
     MX_TIM12_Init();
@@ -572,6 +573,19 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+static void MX_DMA2D_Init(void)
+{
+    hdma2d.Instance          = DMA2D;
+    hdma2d.Init.Mode         = DMA2D_M2M;
+    hdma2d.Init.ColorMode    = DMA2D_OUTPUT_RGB565;
+    hdma2d.Init.OutputOffset = 0;
+    hdma2d.LayerCfg[1].InputOffset    = 0;
+    hdma2d.LayerCfg[1].InputColorMode = DMA2D_INPUT_RGB565;
+    hdma2d.LayerCfg[1].AlphaMode      = DMA2D_NO_MODIF_ALPHA;
+    hdma2d.LayerCfg[1].InputAlpha     = 0;
+    if (HAL_DMA2D_Init(&hdma2d) != HAL_OK) Error_Handler();
+    if (HAL_DMA2D_ConfigLayer(&hdma2d, 1) != HAL_OK) Error_Handler();
+}
 /* USER CODE END 4 */
 
 void Error_Handler(void)

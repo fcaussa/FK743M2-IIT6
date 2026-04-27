@@ -265,7 +265,9 @@ Drivers/lvgl/src/lv_init.o: ../Drivers/lvgl/src/lv_init.c \
  ../Drivers/lvgl/src/others/translation/lv_translation.h \
  ../Drivers/lvgl/src/others/translation/../../lv_conf_internal.h \
  ../Drivers/lvgl/src/others/xml/lv_xml.h \
- ../Drivers/lvgl/src/others/xml/../../misc/lv_types.h
+ ../Drivers/lvgl/src/others/xml/../../misc/lv_types.h \
+ ../Drivers/lvgl/src/draw/dma2d/lv_draw_dma2d.h \
+ ../Drivers/lvgl/src/draw/dma2d/../../lv_conf_internal.h
 ../Drivers/lvgl/src/misc/lv_timer_private.h:
 ../Drivers/lvgl/src/misc/lv_timer.h:
 ../Drivers/lvgl/src/misc/../lv_conf_internal.h:
@@ -539,3 +541,5 @@ C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lv_conf.h:
 ../Drivers/lvgl/src/others/translation/../../lv_conf_internal.h:
 ../Drivers/lvgl/src/others/xml/lv_xml.h:
 ../Drivers/lvgl/src/others/xml/../../misc/lv_types.h:
+../Drivers/lvgl/src/draw/dma2d/lv_draw_dma2d.h:
+../Drivers/lvgl/src/draw/dma2d/../../lv_conf_internal.h:

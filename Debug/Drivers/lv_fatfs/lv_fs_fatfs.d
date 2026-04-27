@@ -463,6 +463,7 @@ Drivers/lv_fatfs/lv_fs_fatfs.o: ../Drivers/lv_fatfs/lv_fs_fatfs.c \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_dma.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_dma_ex.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_mdma.h \
+ ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_dma2d.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_exti.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_cortex.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_flash.h \
@@ -959,6 +960,7 @@ C:/Users/franc/Documents/GitHub/FK743M2-IIT6/Drivers/lvgl/src/lv_conf_internal.h
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_dma.h:
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_dma_ex.h:
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_mdma.h:
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_dma2d.h:
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_exti.h:
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_cortex.h:
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_flash.h:
