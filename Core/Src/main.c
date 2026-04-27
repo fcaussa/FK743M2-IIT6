@@ -207,16 +207,23 @@ int main(void)
 
     lvgl_initialization();
 
-    /* Mount SD card and register LVGL filesystem driver (driver letter 'S') */
-    if(sd_present){
-    	if (f_mount(&SDFatFS, SDPath, 1) == FR_OK) {
-        	lv_fs_fatfs_init();
-        	/* SD card image test — before UI loads */
-        	lv_obj_t *img = lv_image_create(lv_screen_active());
-        	lv_image_set_src(img, "S:/test.bin");
-        	lv_obj_center(img);
-        	HAL_Delay(5000); //show me the image!
-    	}
+    /* if sdcard is present, Mount SD card and register LVGL filesystem driver (driver letter 'S') */
+    if (sd_present) {
+        FRESULT mount_res = f_mount(&SDFatFS, SDPath, 1);
+        if (mount_res == FR_OK) {
+            lv_fs_fatfs_init();
+
+            FIL fil;
+            FRESULT res = f_open(&fil, "0:/splash.bin", FA_READ);
+            if (res == FR_OK) {
+                f_close(&fil);
+                lv_obj_t *img = lv_image_create(lv_screen_active());
+                lv_image_set_src(img, "S:/splash.bin");
+                lv_obj_center(img);
+                lv_refr_now(NULL);
+                HAL_Delay(5000);
+            }
+        }
     }
 
     gt911_init();
@@ -430,18 +437,42 @@ static void MX_QUADSPI_Init(void)
 
 static void MX_SDMMC1_SD_Init(void)
 {
-    hsd1.Instance = SDMMC1; hsd1.Init.ClockEdge = SDMMC_CLOCK_EDGE_RISING;
+    hsd1.Instance = SDMMC1;
+    hsd1.Init.ClockEdge = SDMMC_CLOCK_EDGE_RISING;
     hsd1.Init.ClockPowerSave = SDMMC_CLOCK_POWER_SAVE_DISABLE;
-    hsd1.Init.BusWide = SDMMC_BUS_WIDE_4B;
-    hsd1.Init.HardwareFlowControl = SDMMC_HARDWARE_FLOW_CONTROL_DISABLE;
-    hsd1.Init.ClockDiv = 0;
-    if (HAL_SD_Init(&hsd1) == HAL_OK) {
-        sd_present = 1;
-        if (HAL_SD_ConfigWideBusOperation(&hsd1, SDMMC_BUS_WIDE_4B) != HAL_OK)
-            sd_present = 0;
-    } else {
+
+    /*
+     * Start in 1-bit mode.
+     * Do NOT start directly in 4-bit mode.
+     */
+    hsd1.Init.BusWide = SDMMC_BUS_WIDE_1B;
+
+    hsd1.Init.HardwareFlowControl = SDMMC_HARDWARE_FLOW_CONTROL_ENABLE;
+
+    /*
+     * Start slow. After everything works, you can reduce this.
+     * Try 8, 10, 16 or even 20 while debugging.
+     */
+    hsd1.Init.ClockDiv = 16;
+
+    if (HAL_SD_Init(&hsd1) != HAL_OK) {
         sd_present = 0;
+        return;
     }
+
+    /*
+     * Only switch to 4-bit after the card was initialized successfully.
+     * This requires CMD/D0/D1/D2/D3 lines and pull-ups to be correct.
+     */
+    if (HAL_SD_ConfigWideBusOperation(&hsd1, SDMMC_BUS_WIDE_4B) != HAL_OK) {
+        /*
+         * For debugging, do not fail here yet.
+         * Keep the card working in 1-bit mode.
+         */
+        hsd1.Init.BusWide = SDMMC_BUS_WIDE_1B;
+    }
+
+    sd_present = 1;
 }
 
 static void MX_TIM12_Init(void)
