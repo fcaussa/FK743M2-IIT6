@@ -69,7 +69,7 @@
 
 #if LV_USE_STDLIB_MALLOC == LV_STDLIB_BUILTIN
     /** Size of memory available for `lv_malloc()` in bytes (>= 2kB) */
-	#define LV_MEM_SIZE    (384U * 1024U)
+	#define LV_MEM_SIZE    (256U * 1024U) /* Max Allowed Size! Bigger and it crashes!*/
 
     /** Size of the memory expand for `lv_malloc()` in bytes */
     #define LV_MEM_POOL_EXPAND_SIZE 0
