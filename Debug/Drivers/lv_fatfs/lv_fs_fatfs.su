@@ -1,0 +1,10 @@
+../Drivers/lv_fatfs/lv_fs_fatfs.c:20:14:fs_open	40	static
+../Drivers/lv_fatfs/lv_fs_fatfs.c:40:20:fs_close	24	static
+../Drivers/lv_fatfs/lv_fs_fatfs.c:49:20:fs_read	32	static
+../Drivers/lv_fatfs/lv_fs_fatfs.c:58:20:fs_write	32	static
+../Drivers/lv_fatfs/lv_fs_fatfs.c:67:20:fs_seek	40	static
+../Drivers/lv_fatfs/lv_fs_fatfs.c:85:20:fs_tell	32	static
+../Drivers/lv_fatfs/lv_fs_fatfs.c:94:14:fs_dir_open	24	static
+../Drivers/lv_fatfs/lv_fs_fatfs.c:108:20:fs_dir_read	320	static
+../Drivers/lv_fatfs/lv_fs_fatfs.c:126:20:fs_dir_close	24	static
+../Drivers/lv_fatfs/lv_fs_fatfs.c:139:6:lv_fs_fatfs_init	8	static

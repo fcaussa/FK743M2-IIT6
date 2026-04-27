@@ -28,6 +28,7 @@ Core/Src \
 Core/Startup \
 Core/ui \
 Drivers/STM32H7xx_HAL_Driver/Src \
+Drivers/lv_fatfs \
 Drivers/lvgl/env_support/pikascript \
 Drivers/lvgl/env_support/rt-thread \
 Drivers/lvgl/env_support/rt-thread/squareline \
@@ -178,4 +179,8 @@ Drivers/lvgl/src/widgets/textarea \
 Drivers/lvgl/src/widgets/tileview \
 Drivers/lvgl/src/widgets/win \
 Drivers/touch \
+FATFS/App \
+FATFS/Target \
+Middlewares/Third_Party/FatFs/src \
+Middlewares/Third_Party/FatFs/src/option \
 

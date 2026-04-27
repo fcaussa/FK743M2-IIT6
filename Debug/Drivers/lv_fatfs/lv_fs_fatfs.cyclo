@@ -1,0 +1,10 @@
+../Drivers/lv_fatfs/lv_fs_fatfs.c:20:14:fs_open	5
+../Drivers/lv_fatfs/lv_fs_fatfs.c:40:20:fs_close	1
+../Drivers/lv_fatfs/lv_fs_fatfs.c:49:20:fs_read	2
+../Drivers/lv_fatfs/lv_fs_fatfs.c:58:20:fs_write	2
+../Drivers/lv_fatfs/lv_fs_fatfs.c:67:20:fs_seek	6
+../Drivers/lv_fatfs/lv_fs_fatfs.c:85:20:fs_tell	1
+../Drivers/lv_fatfs/lv_fs_fatfs.c:94:14:fs_dir_open	3
+../Drivers/lv_fatfs/lv_fs_fatfs.c:108:20:fs_dir_read	3
+../Drivers/lv_fatfs/lv_fs_fatfs.c:126:20:fs_dir_close	1
+../Drivers/lv_fatfs/lv_fs_fatfs.c:139:6:lv_fs_fatfs_init	1
