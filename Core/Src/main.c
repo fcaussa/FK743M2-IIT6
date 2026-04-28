@@ -50,8 +50,13 @@
 #define LVGL_BUF_1_ADDR     0x24060000UL
 #define LVGL_BUF_2_ADDR     0x24070000UL
 
-//#define LVGL_BUF_1_ADDR     0xC0100000UL  /* SDRAM, after framebuffer */
-//#define LVGL_BUF_2_ADDR     0xC0200000UL
+#define QSPI_FLASH_ADDR         0x90000000U
+#define QSPI_PAGE_SIZE          256
+#define QSPI_SECTOR_SIZE        4096
+#define QSPI_MAGIC              0xDEADBEEF
+#define QSPI_MAGIC_ADDR         0x00000000U  /* first 4 bytes = magic number */
+#define QSPI_IMAGE_ADDR         0x00001000U  /* image starts at sector 1 (4KB offset) */
+
 
 /* USER CODE END PD */
 
@@ -129,6 +134,145 @@ static void SDRAM_Initialization_Sequence(SDRAM_HandleTypeDef *hsdram)
     HAL_SDRAM_ProgramRefreshRate(hsdram, 761);
 }
 
+static void QSPI_WaitBusy(void)
+{
+    QSPI_CommandTypeDef cmd = {0};
+    uint8_t status = 0;
+    cmd.InstructionMode = QSPI_INSTRUCTION_1_LINE;
+    cmd.Instruction     = 0x05;  /* Read Status Register */
+    cmd.DataMode        = QSPI_DATA_1_LINE;
+    cmd.NbData          = 1;
+    cmd.DdrMode         = QSPI_DDR_MODE_DISABLE;
+    cmd.DdrHoldHalfCycle= QSPI_DDR_HHC_ANALOG_DELAY;
+    cmd.SIOOMode        = QSPI_SIOO_INST_EVERY_CMD;
+    do {
+        HAL_QSPI_Command(&hqspi, &cmd, HAL_MAX_DELAY);
+        HAL_QSPI_Receive(&hqspi, &status, HAL_MAX_DELAY);
+    } while (status & 0x01);  /* WIP bit */
+}
+
+static void QSPI_WriteEnable(void)
+{
+    QSPI_CommandTypeDef cmd = {0};
+    cmd.InstructionMode = QSPI_INSTRUCTION_1_LINE;
+    cmd.Instruction     = 0x06;  /* Write Enable */
+    cmd.DataMode        = QSPI_DATA_NONE;
+    cmd.DdrMode         = QSPI_DDR_MODE_DISABLE;
+    cmd.DdrHoldHalfCycle= QSPI_DDR_HHC_ANALOG_DELAY;
+    cmd.SIOOMode        = QSPI_SIOO_INST_EVERY_CMD;
+    HAL_QSPI_Command(&hqspi, &cmd, HAL_MAX_DELAY);
+}
+
+static void QSPI_EraseSector(uint32_t addr)
+{
+    QSPI_CommandTypeDef cmd = {0};
+    QSPI_WriteEnable();
+    cmd.InstructionMode = QSPI_INSTRUCTION_1_LINE;
+    cmd.Instruction     = 0x20;  /* Sector Erase 4KB */
+    cmd.AddressMode     = QSPI_ADDRESS_1_LINE;
+    cmd.AddressSize     = QSPI_ADDRESS_24_BITS;
+    cmd.Address         = addr;
+    cmd.DataMode        = QSPI_DATA_NONE;
+    cmd.DdrMode         = QSPI_DDR_MODE_DISABLE;
+    cmd.DdrHoldHalfCycle= QSPI_DDR_HHC_ANALOG_DELAY;
+    cmd.SIOOMode        = QSPI_SIOO_INST_EVERY_CMD;
+    HAL_QSPI_Command(&hqspi, &cmd, HAL_MAX_DELAY);
+    QSPI_WaitBusy();
+}
+
+static void QSPI_WritePage(uint32_t addr, uint8_t *data, uint32_t size)
+{
+    QSPI_CommandTypeDef cmd = {0};
+    QSPI_WriteEnable();
+    cmd.InstructionMode = QSPI_INSTRUCTION_1_LINE;
+    cmd.Instruction     = 0x02;  /* Page Program */
+    cmd.AddressMode     = QSPI_ADDRESS_1_LINE;
+    cmd.AddressSize     = QSPI_ADDRESS_24_BITS;
+    cmd.Address         = addr;
+    cmd.DataMode        = QSPI_DATA_1_LINE;
+    cmd.NbData          = size;
+    cmd.DdrMode         = QSPI_DDR_MODE_DISABLE;
+    cmd.DdrHoldHalfCycle= QSPI_DDR_HHC_ANALOG_DELAY;
+    cmd.SIOOMode        = QSPI_SIOO_INST_EVERY_CMD;
+    HAL_QSPI_Command(&hqspi, &cmd, HAL_MAX_DELAY);
+    HAL_QSPI_Transmit(&hqspi, data, HAL_MAX_DELAY);
+    QSPI_WaitBusy();
+}
+
+static void QSPI_ReadData(uint32_t addr, uint8_t *buf, uint32_t size)
+{
+    QSPI_CommandTypeDef cmd = {0};
+    cmd.InstructionMode = QSPI_INSTRUCTION_1_LINE;
+    cmd.Instruction     = 0x03;  /* Read Data */
+    cmd.AddressMode     = QSPI_ADDRESS_1_LINE;
+    cmd.AddressSize     = QSPI_ADDRESS_24_BITS;
+    cmd.Address         = addr;
+    cmd.DataMode        = QSPI_DATA_1_LINE;
+    cmd.NbData          = size;
+    cmd.DdrMode         = QSPI_DDR_MODE_DISABLE;
+    cmd.DdrHoldHalfCycle= QSPI_DDR_HHC_ANALOG_DELAY;
+    cmd.SIOOMode        = QSPI_SIOO_INST_EVERY_CMD;
+    HAL_QSPI_Command(&hqspi, &cmd, HAL_MAX_DELAY);
+    HAL_QSPI_Receive(&hqspi, buf, HAL_MAX_DELAY);
+}
+
+static void QSPI_EnableMemoryMapped(void)
+{
+    QSPI_CommandTypeDef      cmd = {0};
+    QSPI_MemoryMappedTypeDef cfg = {0};
+    cmd.InstructionMode    = QSPI_INSTRUCTION_1_LINE;
+    cmd.Instruction        = 0xEB;  /* Fast Read Quad I/O */
+    cmd.AddressMode        = QSPI_ADDRESS_4_LINES;
+    cmd.AddressSize        = QSPI_ADDRESS_24_BITS;
+    cmd.AlternateByteMode  = QSPI_ALTERNATE_BYTES_4_LINES;
+    cmd.AlternateBytesSize = QSPI_ALTERNATE_BYTES_8_BITS;
+    cmd.AlternateBytes     = 0xF0;
+    cmd.DataMode           = QSPI_DATA_4_LINES;
+    cmd.DummyCycles        = 4;
+    cmd.DdrMode            = QSPI_DDR_MODE_DISABLE;
+    cmd.DdrHoldHalfCycle   = QSPI_DDR_HHC_ANALOG_DELAY;
+    cmd.SIOOMode           = QSPI_SIOO_INST_EVERY_CMD;
+    cfg.TimeOutActivation  = QSPI_TIMEOUT_COUNTER_DISABLE;
+    if (HAL_QSPI_MemoryMapped(&hqspi, &cmd, &cfg) != HAL_OK) Error_Handler();
+}
+
+static void QSPI_ProgramSplashFromSD(void)
+{
+    uint8_t page_buf[QSPI_PAGE_SIZE];
+    UINT br;
+    uint32_t file_size = 768012;
+    uint32_t addr = QSPI_IMAGE_ADDR;  /* start at sector 1 */
+    uint32_t sectors_needed = (file_size + QSPI_SECTOR_SIZE - 1) / QSPI_SECTOR_SIZE;
+
+    FIL fil;
+    if (f_open(&fil, "0:/splash.bin", FA_READ) != FR_OK) return;
+
+    /* Erase magic sector first */
+    QSPI_EraseSector(0x00000000);
+
+    /* Erase image sectors */
+    for (uint32_t s = 0; s < sectors_needed; s++) {
+        QSPI_EraseSector(QSPI_IMAGE_ADDR + s * QSPI_SECTOR_SIZE);
+    }
+
+    /* Program image page by page */
+    while (addr < QSPI_IMAGE_ADDR + file_size) {
+        uint32_t chunk = (QSPI_IMAGE_ADDR + file_size - addr) > QSPI_PAGE_SIZE ?
+                          QSPI_PAGE_SIZE : (QSPI_IMAGE_ADDR + file_size - addr);
+        f_read(&fil, page_buf, chunk, &br);
+        if (br == 0) break;
+        QSPI_WritePage(addr, page_buf, br);
+        addr += br;
+    }
+    f_close(&fil);
+
+    /* Write magic to mark flash as programmed */
+    uint32_t magic = QSPI_MAGIC;
+    QSPI_WritePage(QSPI_MAGIC_ADDR, (uint8_t *)&magic, 4);
+}
+
+
+
 /* Read JEDEC ID — should return 0xEF4017 for W25Q64JV */
 static uint32_t QSPI_ReadID(void)
 {
@@ -150,30 +294,6 @@ static uint32_t QSPI_ReadID(void)
     if (HAL_QSPI_Receive(&hqspi, id, HAL_MAX_DELAY) != HAL_OK) return 0;
 
     return ((uint32_t)id[0] << 16) | ((uint32_t)id[1] << 8) | id[2];
-}
-
-/* Enable memory-mapped mode (4-line fast read, 0xEB command) */
-static void QSPI_EnableMemoryMapped(void)
-{
-    QSPI_CommandTypeDef      cmd  = {0};
-    QSPI_MemoryMappedTypeDef cfg  = {0};
-
-    cmd.InstructionMode   = QSPI_INSTRUCTION_1_LINE;
-    cmd.Instruction       = 0xEB;  /* Fast Read Quad I/O */
-    cmd.AddressMode       = QSPI_ADDRESS_4_LINES;
-    cmd.AddressSize       = QSPI_ADDRESS_24_BITS;
-    cmd.AlternateByteMode = QSPI_ALTERNATE_BYTES_4_LINES;
-    cmd.AlternateBytesSize= QSPI_ALTERNATE_BYTES_8_BITS;
-    cmd.AlternateBytes    = 0xF0;  /* continuous read mode off */
-    cmd.DataMode          = QSPI_DATA_4_LINES;
-    cmd.DummyCycles       = 4;
-    cmd.DdrMode           = QSPI_DDR_MODE_DISABLE;
-    cmd.DdrHoldHalfCycle  = QSPI_DDR_HHC_ANALOG_DELAY;
-    cmd.SIOOMode          = QSPI_SIOO_INST_EVERY_CMD;
-
-    cfg.TimeOutActivation = QSPI_TIMEOUT_COUNTER_DISABLE;
-
-    if (HAL_QSPI_MemoryMapped(&hqspi, &cmd, &cfg) != HAL_OK) Error_Handler();
 }
 
 
@@ -255,9 +375,6 @@ int main(void)
     uint32_t qspi_id = QSPI_ReadID();
     /* qspi_id should be 0xEF4017 — check in debugger */
 
-    /* Enable memory-mapped mode — flash appears at 0x90000000 */
-    QSPI_EnableMemoryMapped();
-
 
     /* Clear framebuffer before LVGL starts */
     memset((void *)LCD_FB_ADDR, 0x00, LCD_HOR_RES * LCD_VER_RES * BYTES_PER_PIXEL);
@@ -265,24 +382,57 @@ int main(void)
 
     lvgl_initialization();
 
-    /* if sdcard is present, Mount SD card and register LVGL filesystem driver (driver letter 'S') */
-    if (sd_present) {
-        FRESULT mount_res = f_mount(&SDFatFS, SDPath, 1);
-        if (mount_res == FR_OK) {
-            lv_fs_fatfs_init();
 
-            FIL fil;
-            FRESULT res = f_open(&fil, "0:/splash.bin", FA_READ);
-            if (res == FR_OK) {
-                f_close(&fil);
-                lv_obj_t *img = lv_image_create(lv_screen_active());
-                lv_image_set_src(img, "S:/splash.bin");
-                lv_obj_center(img);
-                lv_refr_now(NULL);
-                HAL_Delay(5000);
-            }
-        }
-    }
+    uint32_t magic = 0;
+	QSPI_ReadData(QSPI_MAGIC_ADDR, (uint8_t *)&magic, 4);
+
+	/* If flash not programmed yet and SD is present, program it */
+	if (magic != QSPI_MAGIC && sd_present) {
+		FRESULT mount_res = f_mount(&SDFatFS, SDPath, 1);
+		if (mount_res == FR_OK) {
+			lv_fs_fatfs_init();
+			QSPI_ProgramSplashFromSD();
+			/* Verify */
+			QSPI_ReadData(QSPI_MAGIC_ADDR, (uint8_t *)&magic, 4);
+		}
+	}
+
+	/* Show splash regardless of SD — as long as QSPI is programmed */
+	if (magic == QSPI_MAGIC) {
+	    QSPI_EnableMemoryMapped();
+
+	    /* DMA2D direct copy from QSPI flash to framebuffer — skip the 12-byte header */
+	    uint32_t src = QSPI_FLASH_ADDR + QSPI_IMAGE_ADDR + 12;  /* skip header */
+	    uint32_t dst = LCD_FB_ADDR;
+
+	    hdma2d.Init.Mode         = DMA2D_M2M;
+	    hdma2d.Init.ColorMode    = DMA2D_OUTPUT_RGB565;
+	    hdma2d.Init.OutputOffset = 0;
+	    hdma2d.LayerCfg[1].InputOffset    = 0;
+	    hdma2d.LayerCfg[1].InputColorMode = DMA2D_INPUT_RGB565;
+	    hdma2d.LayerCfg[1].AlphaMode      = DMA2D_NO_MODIF_ALPHA;
+	    hdma2d.LayerCfg[1].RedBlueSwap    = DMA2D_RB_REGULAR;
+	    HAL_DMA2D_Init(&hdma2d);
+	    HAL_DMA2D_ConfigLayer(&hdma2d, 1);
+
+	    HAL_DMA2D_Start(&hdma2d, src, dst, LCD_HOR_RES, LCD_VER_RES);
+	    HAL_DMA2D_PollForTransfer(&hdma2d, HAL_MAX_DELAY);
+	    while (DMA2D->CR & DMA2D_CR_START);
+	    __DSB();
+
+	    HAL_Delay(3000);
+	    HAL_QSPI_Abort(&hqspi);
+	    MX_QUADSPI_Init();  /* reinitialize QSPI peripheral cleanly */
+	}
+
+	/* Mount SD for LVGL filesystem if present (after QSPI is done) */
+	if (sd_present) {
+	    FRESULT mount_res = f_mount(&SDFatFS, SDPath, 1);
+	    if (mount_res == FR_OK) {
+	        lv_fs_fatfs_init();
+	    }
+	}
+
 
     gt911_init();
     gt911_lvgl_indev_init();
