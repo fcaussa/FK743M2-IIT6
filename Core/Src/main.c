@@ -129,6 +129,53 @@ static void SDRAM_Initialization_Sequence(SDRAM_HandleTypeDef *hsdram)
     HAL_SDRAM_ProgramRefreshRate(hsdram, 761);
 }
 
+/* Read JEDEC ID — should return 0xEF4017 for W25Q64JV */
+static uint32_t QSPI_ReadID(void)
+{
+    QSPI_CommandTypeDef cmd = {0};
+    uint8_t id[3] = {0};
+
+    cmd.InstructionMode   = QSPI_INSTRUCTION_1_LINE;
+    cmd.Instruction       = 0x9F;  /* JEDEC ID */
+    cmd.AddressMode       = QSPI_ADDRESS_NONE;
+    cmd.AlternateByteMode = QSPI_ALTERNATE_BYTES_NONE;
+    cmd.DataMode          = QSPI_DATA_1_LINE;
+    cmd.DummyCycles       = 0;
+    cmd.NbData            = 3;
+    cmd.DdrMode           = QSPI_DDR_MODE_DISABLE;
+    cmd.DdrHoldHalfCycle  = QSPI_DDR_HHC_ANALOG_DELAY;
+    cmd.SIOOMode          = QSPI_SIOO_INST_EVERY_CMD;
+
+    if (HAL_QSPI_Command(&hqspi, &cmd, HAL_MAX_DELAY) != HAL_OK) return 0;
+    if (HAL_QSPI_Receive(&hqspi, id, HAL_MAX_DELAY) != HAL_OK) return 0;
+
+    return ((uint32_t)id[0] << 16) | ((uint32_t)id[1] << 8) | id[2];
+}
+
+/* Enable memory-mapped mode (4-line fast read, 0xEB command) */
+static void QSPI_EnableMemoryMapped(void)
+{
+    QSPI_CommandTypeDef      cmd  = {0};
+    QSPI_MemoryMappedTypeDef cfg  = {0};
+
+    cmd.InstructionMode   = QSPI_INSTRUCTION_1_LINE;
+    cmd.Instruction       = 0xEB;  /* Fast Read Quad I/O */
+    cmd.AddressMode       = QSPI_ADDRESS_4_LINES;
+    cmd.AddressSize       = QSPI_ADDRESS_24_BITS;
+    cmd.AlternateByteMode = QSPI_ALTERNATE_BYTES_4_LINES;
+    cmd.AlternateBytesSize= QSPI_ALTERNATE_BYTES_8_BITS;
+    cmd.AlternateBytes    = 0xF0;  /* continuous read mode off */
+    cmd.DataMode          = QSPI_DATA_4_LINES;
+    cmd.DummyCycles       = 4;
+    cmd.DdrMode           = QSPI_DDR_MODE_DISABLE;
+    cmd.DdrHoldHalfCycle  = QSPI_DDR_HHC_ANALOG_DELAY;
+    cmd.SIOOMode          = QSPI_SIOO_INST_EVERY_CMD;
+
+    cfg.TimeOutActivation = QSPI_TIMEOUT_COUNTER_DISABLE;
+
+    if (HAL_QSPI_MemoryMapped(&hqspi, &cmd, &cfg) != HAL_OK) Error_Handler();
+}
+
 
 static void flush_cb(lv_display_t *disp, const lv_area_t *area, uint8_t *px_map)
 {
@@ -204,9 +251,17 @@ int main(void)
     HAL_TIM_PWM_Start(&htim12, TIM_CHANNEL_1);
     __HAL_TIM_SET_COMPARE(&htim12, TIM_CHANNEL_1, 375);
 
+    /* Verify QSPI flash communication */
+    uint32_t qspi_id = QSPI_ReadID();
+    /* qspi_id should be 0xEF4017 — check in debugger */
+
+    /* Enable memory-mapped mode — flash appears at 0x90000000 */
+    QSPI_EnableMemoryMapped();
+
 
     /* Clear framebuffer before LVGL starts */
     memset((void *)LCD_FB_ADDR, 0x00, LCD_HOR_RES * LCD_VER_RES * BYTES_PER_PIXEL);
+
 
     lvgl_initialization();
 
@@ -430,11 +485,17 @@ static void MX_LTDC_Init(void)
 
 static void MX_QUADSPI_Init(void)
 {
-    hqspi.Instance = QUADSPI; hqspi.Init.ClockPrescaler = 255;
-    hqspi.Init.FifoThreshold = 1; hqspi.Init.SampleShifting = QSPI_SAMPLE_SHIFTING_NONE;
-    hqspi.Init.FlashSize = 1; hqspi.Init.ChipSelectHighTime = QSPI_CS_HIGH_TIME_1_CYCLE;
-    hqspi.Init.ClockMode = QSPI_CLOCK_MODE_0; hqspi.Init.FlashID = QSPI_FLASH_ID_1;
-    hqspi.Init.DualFlash = QSPI_DUALFLASH_DISABLE;
+    /* W25Q64JV: 64Mbit, 133MHz max
+     * AHB clock = 240MHz, prescaler 1 → 120MHz (safe for W25Q64JV) */
+    hqspi.Instance = QUADSPI;
+    hqspi.Init.ClockPrescaler     = 1;          /* 240/(1+1) = 120MHz */
+    hqspi.Init.FifoThreshold      = 4;
+    hqspi.Init.SampleShifting     = QSPI_SAMPLE_SHIFTING_HALFCYCLE;
+    hqspi.Init.FlashSize          = 22;         /* 2^(22+1) = 8MB */
+    hqspi.Init.ChipSelectHighTime = QSPI_CS_HIGH_TIME_2_CYCLE;
+    hqspi.Init.ClockMode          = QSPI_CLOCK_MODE_0;
+    hqspi.Init.FlashID            = QSPI_FLASH_ID_1;
+    hqspi.Init.DualFlash          = QSPI_DUALFLASH_DISABLE;
     if (HAL_QSPI_Init(&hqspi) != HAL_OK) Error_Handler();
 }
 
