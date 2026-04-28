@@ -47,11 +47,11 @@
 #define BYTES_PER_PIXEL     2
 #define LVGL_BUF_SIZE       (LCD_HOR_RES * LVGL_BUF_LINES * BYTES_PER_PIXEL)
 
-//#define LVGL_BUF_1_ADDR     0x24060000UL
-//#define LVGL_BUF_2_ADDR     0x24070000UL
+#define LVGL_BUF_1_ADDR     0x24060000UL
+#define LVGL_BUF_2_ADDR     0x24070000UL
 
-#define LVGL_BUF_1_ADDR     0xC0100000UL  /* SDRAM, after framebuffer */
-#define LVGL_BUF_2_ADDR     0xC0200000UL
+//#define LVGL_BUF_1_ADDR     0xC0100000UL  /* SDRAM, after framebuffer */
+//#define LVGL_BUF_2_ADDR     0xC0200000UL
 
 /* USER CODE END PD */
 
