@@ -47,8 +47,11 @@
 #define BYTES_PER_PIXEL     2
 #define LVGL_BUF_SIZE       (LCD_HOR_RES * LVGL_BUF_LINES * BYTES_PER_PIXEL)
 
-#define LVGL_BUF_1_ADDR     0x24060000UL
-#define LVGL_BUF_2_ADDR     0x24070000UL
+//#define LVGL_BUF_1_ADDR     0x24060000UL
+//#define LVGL_BUF_2_ADDR     0x24070000UL
+
+#define LVGL_BUF_1_ADDR     0xC0100000UL  /* SDRAM, after framebuffer */
+#define LVGL_BUF_2_ADDR     0xC0200000UL
 
 /* USER CODE END PD */
 
@@ -126,16 +129,30 @@ static void SDRAM_Initialization_Sequence(SDRAM_HandleTypeDef *hsdram)
     HAL_SDRAM_ProgramRefreshRate(hsdram, 761);
 }
 
+
 static void flush_cb(lv_display_t *disp, const lv_area_t *area, uint8_t *px_map)
 {
-    uint16_t *fb  = (uint16_t *)LCD_FB_ADDR;
-    uint16_t *src = (uint16_t *)px_map;
-    int32_t   w   = area->x2 - area->x1 + 1;
-    int32_t   h   = area->y2 - area->y1 + 1;
-    for (int32_t y = 0; y < h; y++) {
-        memcpy(&fb[(area->y1 + y) * LCD_HOR_RES + area->x1],
-               &src[y * w], (uint32_t)w * sizeof(uint16_t));
-    }
+    int32_t w = area->x2 - area->x1 + 1;
+    int32_t h = area->y2 - area->y1 + 1;
+
+    uint32_t dst = LCD_FB_ADDR
+                 + ((uint32_t)area->y1 * LCD_HOR_RES + (uint32_t)area->x1)
+                   * sizeof(uint16_t);
+
+    hdma2d.Init.OutputOffset       = LCD_HOR_RES - w;
+    hdma2d.LayerCfg[1].InputOffset = 0;
+    hdma2d.LayerCfg[1].RedBlueSwap = DMA2D_RB_REGULAR;
+
+    HAL_DMA2D_Init(&hdma2d);
+    HAL_DMA2D_ConfigLayer(&hdma2d, 1);
+
+    HAL_DMA2D_Start(&hdma2d, (uint32_t)px_map, dst, (uint32_t)w, (uint32_t)h);
+    HAL_DMA2D_PollForTransfer(&hdma2d, HAL_MAX_DELAY);
+
+    /* HAL flag clears early — wait for true hardware completion */
+    while (DMA2D->CR & DMA2D_CR_START);
+    __DSB();
+
     lv_display_flush_ready(disp);
 }
 
@@ -145,7 +162,7 @@ static void lvgl_initialization(void)
     lv_init();
     lv_tick_set_cb(HAL_GetTick);
     uint8_t *buf1 = (uint8_t *)LVGL_BUF_1_ADDR;
-    uint8_t *buf2 = (uint8_t *)LVGL_BUF_2_ADDR;
+    uint8_t *buf2 = (uint8_t *)LVGL_BUF_2_ADDR;  /* restore second buffer */
     lv_display_t *disp = lv_display_create(LCD_HOR_RES, LCD_VER_RES);
     if (disp == NULL) return;
     lv_display_set_buffers(disp, buf1, buf2, LVGL_BUF_SIZE, LV_DISPLAY_RENDER_MODE_PARTIAL);
@@ -187,29 +204,9 @@ int main(void)
     HAL_TIM_PWM_Start(&htim12, TIM_CHANNEL_1);
     __HAL_TIM_SET_COMPARE(&htim12, TIM_CHANNEL_1, 375);
 
-    /* Color bars test */
-    {
-        uint16_t *fb = (uint16_t *)LCD_FB_ADDR;
-        for (uint32_t y = 0; y < LCD_VER_RES; y++) {
-            for (uint32_t x = 0; x < LCD_HOR_RES; x++) {
-                uint16_t color;
-                if      (x < 1 * LCD_HOR_RES / 8) color = 0x0000;
-                else if (x < 2 * LCD_HOR_RES / 8) color = 0xF800;
-                else if (x < 3 * LCD_HOR_RES / 8) color = 0x07E0;
-                else if (x < 4 * LCD_HOR_RES / 8) color = 0x001F;
-                else if (x < 5 * LCD_HOR_RES / 8) color = 0xFFE0;
-                else if (x < 6 * LCD_HOR_RES / 8) color = 0xF81F;
-                else if (x < 7 * LCD_HOR_RES / 8) color = 0x07FF;
-                else                               color = 0xFFFF;
-                fb[y * LCD_HOR_RES + x] = color;
-            }
-        }
-        HAL_Delay(2000);
-    }
 
     /* Clear framebuffer before LVGL starts */
     memset((void *)LCD_FB_ADDR, 0x00, LCD_HOR_RES * LCD_VER_RES * BYTES_PER_PIXEL);
-
 
     lvgl_initialization();
 
