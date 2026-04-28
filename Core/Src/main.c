@@ -245,9 +245,11 @@ static void QSPI_ProgramSplashFromSD(void)
     uint32_t sectors_needed = (file_size + QSPI_SECTOR_SIZE - 1) / QSPI_SECTOR_SIZE;
 
     FIL fil;
+    /* If file splash.bin exists and can be opened*/
+
     if (f_open(&fil, "0:/splash.bin", FA_READ) != FR_OK) return;
 
-    /* Erase magic sector first */
+    /* Erase magic sector first: This sector is flag that QSPI has a valid image avaiable */
     QSPI_EraseSector(0x00000000);
 
     /* Erase image sectors */
@@ -371,6 +373,27 @@ int main(void)
     HAL_TIM_PWM_Start(&htim12, TIM_CHANNEL_1);
     __HAL_TIM_SET_COMPARE(&htim12, TIM_CHANNEL_1, 375);
 
+    /* SHows a Color bars test */
+    {
+        uint16_t *fb = (uint16_t *)LCD_FB_ADDR;
+        for (uint32_t y = 0; y < LCD_VER_RES; y++) {
+            for (uint32_t x = 0; x < LCD_HOR_RES; x++) {
+                uint16_t color;
+                if      (x < 1 * LCD_HOR_RES / 8) color = 0x0000;
+                else if (x < 2 * LCD_HOR_RES / 8) color = 0xF800;
+                else if (x < 3 * LCD_HOR_RES / 8) color = 0x07E0;
+                else if (x < 4 * LCD_HOR_RES / 8) color = 0x001F;
+                else if (x < 5 * LCD_HOR_RES / 8) color = 0xFFE0;
+                else if (x < 6 * LCD_HOR_RES / 8) color = 0xF81F;
+                else if (x < 7 * LCD_HOR_RES / 8) color = 0x07FF;
+                else                               color = 0xFFFF;
+                fb[y * LCD_HOR_RES + x] = color;
+            }
+        }
+        HAL_Delay(2000);
+    }
+
+
     /* Verify QSPI flash communication */
     uint32_t qspi_id = QSPI_ReadID();
     /* qspi_id should be 0xEF4017 — check in debugger */
@@ -386,7 +409,8 @@ int main(void)
     uint32_t magic = 0;
 	QSPI_ReadData(QSPI_MAGIC_ADDR, (uint8_t *)&magic, 4);
 
-	/* If flash not programmed yet and SD is present, program it */
+	/* If splash image in QSPI flash not programmed yet and SD is present, program it */
+	/* Demo splash.bin can be found in Resources folder. Save to root in SD card*/
 	if (magic != QSPI_MAGIC && sd_present) {
 		FRESULT mount_res = f_mount(&SDFatFS, SDPath, 1);
 		if (mount_res == FR_OK) {
